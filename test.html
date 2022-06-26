@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+<body>
+
+
+<div class="container">
+
+        <div class="row">
+            <button type="button" class="btn btn-secondary" id="clear">💎 CLEAR 💎</button>
+        </div>
+        <div class="row">
+            <svg class="plot"></svg>
+        </div>
+
+</div>
+</body>
+
+<style>
+    .plot {
+    background-color: rgb(171, 171, 171);
+    height: 500px;
+}
+
+</style>
+
+<script>
+    var svg = d3.select('.plot');
+    svg.append('g');
+    var g=d3.select('g');
+    function drawMan(x, y) {
+        console.log('Drawing circle at', x, y);
+        g.append("image")
+            .attr("xlink:href","test_svg.svg")
+            .attr('width',100)
+            .attr('x',x-50)
+            .attr('y',y-50)
+    }
+
+//click event
+    svg.on('click', function() {
+        var coords = d3.pointer(event,g.node());//幹，搞好久就是在處裡第二個參數
+        console.log(coords);
+        drawMan(coords[0], coords[1]);
+        
+    });
+
+//delete event
+    var clear = d3.select('#clear');
+    clear.on('click',function(){
+        g.selectAll("*").remove();
+    })
+
+//zoom event
+    var zoom = d3.zoom()
+        .scaleExtent([0.3, 5])
+        .on('zoom', function(event) {
+        svg.selectAll('g')
+        .attr('transform', event.transform)
+});
+svg.call(zoom);
+
+</script>
