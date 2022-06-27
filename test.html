@@ -23,6 +23,19 @@
     background-color: rgb(171, 171, 171);
     height: 500px;
 }
+image{
+    position:absolute;
+    animation-duration: 1s;
+    animation-name:img;
+}
+@keyframes img{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 
 </style>
 
@@ -61,5 +74,7 @@
         .attr('transform', event.transform)
 });
 svg.call(zoom);
+
+
 
 </script>
