@@ -54,7 +54,7 @@ image{
 
 //click event
     svg.on('click', function() {
-        var coords = d3.pointer(event,g.node());//幹，搞好久就是在處裡第二個參數
+        var coords = d3.pointer(event,g.node());//搞好久就是在處裡第二個參數
         console.log(coords);
         drawMan(coords[0], coords[1]);
         
