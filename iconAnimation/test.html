@@ -3,18 +3,15 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v6.js"></script>
+
 <body>
-
-
 <div class="container">
-
         <div class="row">
             <button type="button" class="btn btn-secondary" id="clear">💎 CLEAR 💎</button>
         </div>
         <div class="row">
             <svg class="plot"></svg>
         </div>
-
 </div>
 
 <object data="circles.svg" type="image/svg+xml" id="circles"></object>
@@ -25,29 +22,28 @@
     background-color: rgb(171, 171, 171);
     height: 500px;
 }
-
-
 </style>
 
+
 <script>
-//radom a number function
-    function getRandom(min,max){
+
+    function getRandom(min,max){ //radom a number function 
         return Math.floor(Math.random()*max)+min;
     };
 
-    var num = 0;//to count the svg id
+    var num = 0; //to count the svg id
     var svg = d3.select('.plot');
     svg.append('g');
     var g=d3.select('g');
     function drawMan(x, y) {
         console.log('Drawing  at', x, y);
-        g.append("image")
+        g.append("image") //畫出小人svg
             .attr("xlink:href","testroy.svg")
             .attr('width',100)
-            .attr('x',x-50)
+            .attr('x',x-50)//調整鼠標位置到icon中間
             .attr('y',y-50)
-            .attr("id", num)
-        g.append('text')//在小人上加第幾個出現的
+            .attr("id", num)//給他id
+        g.append('text')//在小人上加第幾個出現的，也是svg的id
             .attr("x", x-2)
             .attr("y", y-32)
             .attr('font-family',' Castellar')
@@ -56,7 +52,7 @@
         
         //更改水位
         var ran=getRandom(0,33); //決定水位 min=0 max=33
-        if(ran<16.5){
+        if(ran<16.5){//如果random number小於50% 則顯示黑色
         g.append('rect')
             .attr("x", x-11)
             .attr('y',y+24.7-ran)
@@ -65,7 +61,7 @@
             .attr('height', ran)
             .attr('fill','#000000')
         }
-        else{
+        else{//如果random number大於50% 則顯示藍色
             g.append('rect')
             .attr("x", x-11)
             .attr('y',y+24.7-ran)
@@ -75,7 +71,7 @@
             .attr('fill','#3E78FF')
         }
 
-        g.append('text')//在小人上加第幾個出現的
+        g.append('text')//在小人上加上random出來的趴數
             .attr("x", x-11)
             .attr("y", y-55)
             .attr('font-family',' Castellar')
@@ -85,14 +81,14 @@
         
 }
 
-//click event
+//click event 抓取屬標目前位置
     svg.on('click', function() {
         var coords = d3.pointer(event,g.node());//搞好久就是在處裡第二個參數
         console.log(coords);
         drawMan(coords[0], coords[1]);
     });
 
-//delete event
+//delete event 刪掉所有小人
     var clear = d3.select('#clear');
     clear.on('click',function(){
         g.selectAll("*").remove();
@@ -101,7 +97,7 @@
 
 //zoom event
     var zoom = d3.zoom()
-        .scaleExtent([1, 3])
+        .scaleExtent([1, 3])// 調整可以zoom多大多小
         .on('zoom', function(event) {
         svg.selectAll('g')
         .attr('transform', event.transform)
