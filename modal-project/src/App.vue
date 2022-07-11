@@ -11,14 +11,14 @@
                 <label for="job" class="label_lt">行業</label>
                 <b-form-select v-model="jobs_selected" :options="jobs" class="job"></b-form-select>
                 <label for="sb-inline" class="label_lt">距離</label>
-                <b-form-spinbutton id="sb-inline" v-model="distance" inline></b-form-spinbutton>
+                <b-form-input id="range-1" v-model="distance" type="range" min="300" max="1500"></b-form-input>  
               </div>
+              <div class="mt-2">Value: {{ distance }}</div>
               <!-- 圖例modal, 參數為行業 -->
               <!-- <Icon :jobType="jobs" :distance="distance"/> -->
             </b-tab>
             <b-tab title="圖表">
               <b-card-text>圖表</b-card-text>
-              
             </b-tab>
           </b-tabs>
         </b-card>
@@ -40,14 +40,9 @@
     <div class="right">
       <div class="r_modal">
         <!-- 地圖modal-->
-        <!-- <Map v-if="isMap" :jobType="jobs" :distance="distance"/> -->
+        <Map v-if="isMap" :jobType="jobs" :distance="distance" />
         <!-- 樹枝modal-->
         <!-- <Branch v-if="!isMap" :jobType="jobs" :distance="distance"/> -->
-      </div>
-      <div class="r_button">
-        <b-button variant="outline-primary">新增選址地點</b-button><br><br>
-        <b-button variant="outline-secondary">刪除選址地點</b-button><br><br>
-        <b-button @click="toggleModal" variant="outline-info">切換模式</b-button>
       </div>
     </div>
   </div>  
@@ -61,12 +56,12 @@
 // 左下總覽
 // import Overview from './components/Overview.vue'
 // 右方地圖
-// import Map from './components/Map.vue'
+import Map from './components/Map.vue'
 // 右方樹枝
 // import Branch from './components/Branch.vue'
 
 export default {
-  // components:{Block},
+  components:{Map},
   data(){
     return{
       // 左上行業select
@@ -77,7 +72,7 @@ export default {
         {value:'c', text:'健身房'}
       ],
       // 左上距離調整
-      distance: 50,
+      distance: 300,
       // 判斷右方模式
       isMap: true
       // 應該要有一個儲存選定地點的array? 加權modal會計算並回傳加權分數(假設icon有encode分數高低)
@@ -148,5 +143,9 @@ export default {
   top: 5%;
   text-align: center;
   margin-right: 20px;
+}
+.custom-range{
+  width: 40%;
+  padding-top: 18px;
 }
 </style>
