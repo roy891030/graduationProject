@@ -8,6 +8,39 @@
           :color="marker.color"
           :fillOpacity="marker.fillOpacity"
         />
+        <!-- 創建標記點 -->
+        <l-marker  v-for="item in mrtData" :lat-lng="[item.Latitude, item.Longitude]" >
+        <!-- 標記點樣式 -->
+          <l-icon
+            :icon-url="icon.iconType.mrt"
+            :icon-size="icon.iconSize.tri" 
+          />
+          <l-popup>
+            {{ "捷運"+item.StationNameZh+"站" }}
+          </l-popup>
+        </l-marker>
+        <!-- 創建標記點 -->
+        <l-marker  v-for="item in marketData" :lat-lng="[item.Latitude, item.Longitude]" >
+        <!-- 標記點樣式 -->
+          <l-icon 
+            v-if="item.品牌 === '小北'"
+            :icon-url="icon.iconType.小北"
+            :icon-size="icon.iconSize.squ" 
+          />
+          <l-icon 
+            v-if="item.品牌 === '全聯'"
+            :icon-url="icon.iconType.全聯"
+            :icon-size="icon.iconSize.squ" 
+          />
+          <l-icon 
+            v-if="item.品牌 === '美廉社'"
+            :icon-url="icon.iconType.美廉"
+            :icon-size="icon.iconSize.squ" 
+          />
+          <l-popup>
+            {{ item.品牌+item.門市 }}
+          </l-popup>
+        </l-marker>
         <l-control  class="r_button">
             <b-button variant="primary" @click="isPush">新增地點</b-button><br><br>
             <!-- <b-button variant="secondary" >刪除地點</b-button><br><br> -->
@@ -21,8 +54,11 @@
 </template>
 
 <script>
-import {LMap, LTileLayer, LControl, LCircle, LCircleMarker} from 'vue2-leaflet';
+import {LMap, LTileLayer, LControl, LCircle, LCircleMarker, LMarker, LIcon, LPopup} from 'vue2-leaflet';
 import "leaflet/dist/leaflet.css";
+
+import mrtjson from '../高捷.json';
+import market from '../超市.json';
 
 export default {
   props:['distance'],
@@ -31,7 +67,10 @@ export default {
     LTileLayer,
     LControl,
     LCircle,
-    LCircleMarker
+    LCircleMarker,
+    LMarker,
+    LIcon,
+    LPopup
   },
   data () {
     return {
@@ -41,7 +80,22 @@ export default {
       zoom: 10.8,
       center: [ 22.62, 120.33],
       push: false,
-      newCircleDetails:[]
+      newCircleDetails:[],
+      icon: {
+        iconType: {
+          mrt: "http://localhost/mrt.png",
+          小北: "http://localhost/小北.jpg",
+          全聯: "http://localhost/全聯.png",
+          美廉: "http://localhost/美廉.png"
+        },
+        iconSize: {
+          tri: [41, 25],
+          squ: [25, 20]
+        },
+        iconAnchor: [12, 41],
+      },
+      mrtData: mrtjson,
+      marketData: market
     };
   },
   methods:{
