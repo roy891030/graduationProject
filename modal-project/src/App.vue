@@ -26,10 +26,26 @@
         <b-card no-body class="left_down">
           <b-tabs card>
             <b-tab title="評分" active>
+              <span style="text-align:left; font-weight:bold; float:left">加權調整</span>
+              <span style="text-align:left; font-weight:bold; float:right">評分</span><br><br>
+                
+              <label for="customRange1" class="form-label">50%</label><!--可任意調分-->
+              <input type="range" class="form-range" id="customRange1"><br><br>
               <!-- 加權條整區modal, 參數為行業 -->
               <!-- <Score :jobType="jobs" :distance="distance"/> -->
             </b-tab>
             <b-tab title="總覽">
+              <p>地點需求</p>
+              <div style="height:300px; overflow:auto">
+                <div class="tableline"></div>
+                  <p style="text-align:left">預估需求：</p>
+                  <p style="text-align:left">租金：</p>
+                  <p style="text-align:left">地址：</p><br><br>
+                  <p style="text-align:left">附近競爭者數：</p>
+                  <p style="text-align:left">附近市場數：</p>
+                  <p style="text-align:left">附近捷運站數：</p>
+                  <p style="text-align:left">區域平均租金：</p>
+              </div>
               <!-- 參數...好像...很多... -->
               <!-- <Overview :jobType="jobs" :distance="distance"/> -->
             </b-tab>
@@ -149,4 +165,17 @@ export default {
   text-align: center;
   margin-right: 20px;
 }
+
+.tableline{
+  position: relative;
+  margin: 0 auto;
+  height: 1px;
+  background-color: black;
+}
+.flex{
+  display:flex;
+  align-items:left;
+  margin-bottom: 10px;
+}
+
 </style>
