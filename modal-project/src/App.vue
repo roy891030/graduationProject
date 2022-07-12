@@ -11,9 +11,9 @@
                 <label for="job" class="label_lt">行業</label>
                 <b-form-select v-model="jobs_selected" :options="jobs" class="job"></b-form-select>
                 <label for="sb-inline" class="label_lt">距離</label>
-                <b-form-input id="range-1" v-model="distance" type="range" min="300" max="1500"></b-form-input>  
+                <!-- 應該可以用相對位置等方式去調整pop的位置 -->
+                <b-form-input id="range-1" v-model="distance" type="range" min="300" max="1500" v-b-popover.hover.top="distance"></b-form-input>  
               </div>
-              <div class="mt-2">Value: {{ distance }}</div>
               <!-- 圖例modal, 參數為行業 -->
               <!-- <Icon :jobType="jobs" :distance="distance"/> -->
             </b-tab>
@@ -94,12 +94,6 @@ export default {
       // 應該要有一個儲存選定地點的array? 加權modal會計算並回傳加權分數(假設icon有encode分數高低)
     }
   }
-  // methods: {
-  // 切換右側模式
-  //   toggleModal(){
-  //     this.isMap = !this.isMap
-  //   }
-  // }
 }
 </script>
 

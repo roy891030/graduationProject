@@ -1,7 +1,8 @@
 <template>
 <div style="height:100%">
-    <l-map style="height: 100%" :zoom="zoom" :center="center" @click="addSelect" id="lmap">
+    <l-map style="height: 100%" :zoom="zoom" :center="center" @click="addSelect" id="lmap" :max-bounds="maxBounds">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+        <!-- 使用者選取範圍 -->
         <l-circle v-for="marker in newCircleDetails" :key="marker.id"
           :lat-lng="marker.location"
           :radius="distance"
@@ -15,6 +16,7 @@
             :icon-url="icon.iconType.mrt"
             :icon-size="icon.iconSize.tri" 
           />
+          <!-- 點擊跳出地點資訊 -->
           <l-popup>
             {{ "捷運"+item.StationNameZh+"站" }}
           </l-popup>
@@ -43,9 +45,8 @@
         </l-marker>
         <l-control  class="r_button">
             <b-button variant="primary" @click="isPush">新增地點</b-button><br><br>
-            <!-- <b-button variant="secondary" >刪除地點</b-button><br><br> -->
             <b-dropdown right text="刪除地點" V-if>
-              <b-dropdown-item v-for="marker in newCircleDetails" @click="deleteSelect(marker.id)">{{marker.location}}</b-dropdown-item>
+              <b-dropdown-item v-for="marker in newCircleDetails" @click="deleteSelect(marker.id)" :key="marker.id">{{marker.location}}</b-dropdown-item>
             </b-dropdown><br><br>
             <b-button  variant="info">切換模式</b-button>
         </l-control>
@@ -54,6 +55,7 @@
 </template>
 
 <script>
+import { latLngBounds, latLng } from "leaflet";
 import {LMap, LTileLayer, LControl, LCircle, LCircleMarker, LMarker, LIcon, LPopup} from 'vue2-leaflet';
 import "leaflet/dist/leaflet.css";
 
@@ -77,11 +79,15 @@ export default {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      zoom: 10.8,
-      center: [ 22.62, 120.33],
-      push: false,
-      newCircleDetails:[],
-      icon: {
+      zoom: 10.8,//縮放比例
+      center: [ 22.62, 120.33],// 地圖中心點
+      push: false,//判斷使用者是否要新增選取地點
+      newCircleDetails:[],//紀錄使用者選去地點與範圍資料
+      maxBounds: latLngBounds([// 設定地圖邊界
+        [22.229573497276068, 119.66995239257814],
+        [22.901501217049034, 120.8280395507814]
+      ]),
+      icon: { // 可能可以用zoom加上if else去控制不同縮放比例時的icon大小(?)
         iconType: {
           mrt: "http://localhost/mrt.png",
           小北: "http://localhost/小北.jpg",
@@ -94,13 +100,12 @@ export default {
         },
         iconAnchor: [12, 41],
       },
-      mrtData: mrtjson,
-      marketData: market
+      mrtData: mrtjson,//捷運站原始資料 -> 或許可在app.vue處理?
+      marketData: market// 市場原始資料
     };
   },
   methods:{
-      //似乎該reuse喔
-      addSelect(event) {
+      addSelect(event) {// 新增使用者選取地點
         if(this.push){
           this.newCircleDetails.push({
             id: this.newCircleDetails.length,
@@ -114,7 +119,7 @@ export default {
       isPush(){
           this.push = true
       },
-      deleteSelect(key){
+      deleteSelect(key){// 刪除使用者選取的地點
           this.newCircleDetails.splice(key, 1);
           // console.log(key)
           var temp = []
