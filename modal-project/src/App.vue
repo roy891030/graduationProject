@@ -12,7 +12,7 @@
                 <b-form-select v-model="jobs_selected" :options="jobs" class="job"></b-form-select>
                 <label for="sb-inline" class="label_lt">距離</label>
                 <!-- 應該可以用相對位置等方式去調整pop的位置 -->
-                <b-form-input id="range-1" v-model="distance" type="range" min="300" max="1500" v-b-popover.hover.top="distance"></b-form-input>  
+                <input class="form-range dis_range" id="range-1" v-model="distance"  type="range" min="300" max="1500" v-b-popover.hover.top="distance"></input>  
               </div>
               <!-- 圖例modal, 參數為行業 -->
               <!-- <Icon :jobType="jobs" :distance="distance"/> -->
@@ -29,8 +29,8 @@
               <span style="text-align:left; font-weight:bold; float:left">加權調整</span>
               <span style="text-align:left; font-weight:bold; float:right">評分</span><br><br>
                 
-              <label for="customRange1" class="form-label">50%</label><!--可任意調分-->
-              <input type="range" class="form-range" id="customRange1"><br><br>
+              <label for="customRange1" class="form-label" >{{score}}</label><!--可任意調分-->
+              <input type="range" class="form-range" id="customRange1" v-model="score"><br><br>
               <!-- 加權條整區modal, 參數為行業 -->
               <!-- <Score :jobType="jobs" :distance="distance"/> -->
             </b-tab>
@@ -40,7 +40,7 @@
                 <div class="tableline"></div>
                   <p style="text-align:left">預估需求：</p>
                   <p style="text-align:left">租金：</p>
-                  <p style="text-align:left">地址：</p><br><br>
+                  <p style="text-align:left">地址：</p>
                   <p style="text-align:left">附近競爭者數：</p>
                   <p style="text-align:left">附近市場數：</p>
                   <p style="text-align:left">附近捷運站數：</p>
@@ -90,8 +90,9 @@ export default {
       // 左上距離調整
       distance: 300,
       // 判斷右方模式
-      isMap: true
+      isMap: true,
       // 應該要有一個儲存選定地點的array? 加權modal會計算並回傳加權分數(假設icon有encode分數高低)
+      score: 50
     }
   }
 }
@@ -113,7 +114,7 @@ export default {
 }
 .left_top{
   height: 53%;
-  width: 450px;
+  width: 380px;
 }
 .setting{
   display: flex;
@@ -168,5 +169,8 @@ export default {
 .custom-range{
   width: 40%;
   padding-top: 18px;
+}
+.dis_range{
+  width: 160px;
 }
 </style>
