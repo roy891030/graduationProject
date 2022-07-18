@@ -28,6 +28,12 @@ export default {
 </script>
 
 <style scoped>
+.tableline{
+  position: relative;
+  margin: 0 auto;
+  height: 1px;
+  background-color: black;
+}
 .le{
   text-align:left;
 }
