@@ -1,4 +1,3 @@
-<!-- 小人依據不同的職業拿不同的東西 -->
 <!-- icon animation -->
 <!-- 租金data如何流到這個vue -->
 
@@ -7,22 +6,22 @@
     <b-container>
         <b-row align-v="center">
 
-            <div class="text-center" v-show="select==='a'">
-                <img src="../svg/vuePerson.svg" alt="" width="80%">
-                <img src="../svg/bag.svg" alt="" width="80%">
-                <img src="../svg/flag.svg" alt="" width="80%">
+            <div  v-show="select==='a'">
+                <img class="person" src="../svg/vuePerson.svg" alt="">
+                <img class="right" src="../svg/flower.svg" alt="">
+                <img class="left" src="../svg/flag.svg" alt="">
             </div>
 
-            <div v-show="select === 'b'">
-                <img src="../svg/vuePerson.svg" alt="" width="80%">
-                <img src="../svg/bag.svg" alt="" width="80%">
-                <img src="../svg/flag.svg" alt="" width="80%">
+            <div v-show="select === 'b'" >
+                <img class="person" src="../svg/vuePerson.svg" alt="" width="80%">
+                <img class="right" src="../svg/bag.svg" alt="" width="80%">
+                <img class="left" src="../svg/flag.svg" alt="" width="80%">
             </div>
 
             <div v-show="select === 'c'">
-                <img src="../svg/vuePerson.svg" alt="" width="80%">
-                <img src="../svg/bag.svg" alt="" width="80%">
-                <img src="../svg/flag.svg" alt="" width="80%">
+                <img class="person" src="../svg/vuePerson.svg" alt="" width="80%">
+                <img class="right" src="../svg/bag.svg" alt="" width="80%">
+                <img class="left" src="../svg/flag.svg" alt="" width="80%">
             </div>
 
         </b-row>
@@ -33,7 +32,7 @@
 <script>
 
 export default {
-    props: ['jobType', 'distance','select' ],
+    props: ['jobType','select' ],
 
     data(){
         return{
@@ -51,8 +50,87 @@ export default {
 
 
 
-img{
-    position:absolute;
-    width:70%;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes example {
+    0% {
+    top: 140px;
+    }
+    50% {
+    top: 100px;
+    transform: rotate(-10deg)
+    }
+    100% {
+    top: 140px;
+    }
 }
+
+@keyframes example2 {
+    0% {
+    top: 170px;
+    left: 180px;
+
+    }
+
+    50% {
+    top: 100px;
+    left: 190px;
+    transform: rotate(45deg)
+
+    }
+
+    100% {
+    top: 170px;
+    left: 180px;
+    }
+}
+
+
+
+.left{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+            left: 10px;
+    animation-name: example;
+    
+    animation-duration: 2s;
+    animation-iteration-count: 1000000;
+}
+
+
+
+.person{
+    position: absolute;
+    top:140px;
+    left:100px;
+    width:30%;
+
+
+}
+
+.right{
+position: absolute;
+    animation-name: example2;
+    animation-duration: 2s;
+    animation-iteration-count: 1000000;
+    width: 80px;
+    height: 80px;
+}
+
 </style>
