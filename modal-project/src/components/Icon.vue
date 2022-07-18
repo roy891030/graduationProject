@@ -6,13 +6,14 @@
     <b-container>
         <b-row align-v="center">
 
-            <div  v-show="select==='a'">
+            <div v-show="select==='a'">
                 <img class="person" src="../svg/vuePerson.svg" alt="">
                 <img class="right" src="../svg/flower.svg" alt="">
                 <img class="left" src="../svg/flag.svg" alt="">
+
             </div>
 
-            <div v-show="select === 'b'" >
+            <div v-show="select === 'b'">
                 <img class="person" src="../svg/vuePerson.svg" alt="" width="80%">
                 <img class="right" src="../svg/bag.svg" alt="" width="80%">
                 <img class="left" src="../svg/flag.svg" alt="" width="80%">
@@ -30,7 +31,6 @@
 </template>
 
 <script>
-
 export default {
     props: ['jobType','select' ],
 
@@ -54,25 +54,12 @@ export default {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @keyframes example {
     0% {
     top: 140px;
     }
     50% {
-    top: 100px;
+    top: 110px;
     transform: rotate(-10deg)
     }
     100% {
@@ -100,7 +87,10 @@ export default {
     }
 }
 
+svg.liquid{
+    position:absolute;
 
+}
 
 .left{
     position: absolute;
@@ -120,9 +110,8 @@ export default {
     top:140px;
     left:100px;
     width:30%;
-
-
 }
+
 
 .right{
 position: absolute;
