@@ -4,7 +4,7 @@
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <!-- 使用者選取範圍 -->
         <l-circle v-for="marker in newCircleDetails" :key="marker.id" :lat-lng="marker.location"
-          :radius="distance" :color="marker.color" :fillOpacity="marker.fillOpacity"/>
+          :radius="range" :color="marker.color" :fillOpacity="marker.fillOpacity"/>
         <!-- 創建標記點 !!!!!地圖上捷運站的位置跟我們顯示的有誤差!!!!--> 
         <l-marker  v-for="item in mrt_filter()" :lat-lng="item.location">
           <!-- 標記點樣式 -->
@@ -39,7 +39,7 @@ import mrtjson from '../高捷.json';
 import market from '../超市.json';
 
 export default {
-  props:['distance'],
+  props:['range'],
   components: {LMap, LTileLayer, LControl, LCircle, LCircleMarker, LMarker, LIcon, LPopup},
   data () {
     return {
@@ -97,7 +97,7 @@ export default {
                 this.to_load_mrt = !this.to_load_mrt;
               }
             }
-            if(this.mrtData[i].location.distanceTo(this.newCircleDetails[this.newCircleDetails.length -1].location) < this.distance){ // 判斷那些站被新增的圓圈框到
+            if(this.mrtData[i].location.distanceTo(this.newCircleDetails[this.newCircleDetails.length -1].location) < this.range){ // 判斷那些站被新增的圓圈框到
               this.mrtData[i].circle_times = this.mrtData[i].circle_times + 1;
             }
           }
@@ -117,7 +117,7 @@ export default {
                 this.to_load_market = !this.to_load_market;
               }
             }
-            if(this.marketData[i].location.distanceTo(this.newCircleDetails[this.newCircleDetails.length -1].location) < this.distance){ // 判斷那些站被新增的圓圈框到
+            if(this.marketData[i].location.distanceTo(this.newCircleDetails[this.newCircleDetails.length -1].location) < this.range){ // 判斷那些站被新增的圓圈框到
               this.marketData[i].circle_times = this.marketData[i].circle_times + 1;
             }
           }
@@ -139,7 +139,7 @@ export default {
         // 刪除圓圈後變成沒被選到的捷運其選取次數減1
         this.$nextTick(()=>{
           for(let i = 0; i < this.mrtData.length; i++){
-            if(this.mrtData[i].location.distanceTo(location) < this.distance){
+            if(this.mrtData[i].location.distanceTo(location) < this.range){
               this.mrtData[i].circle_times = this.mrtData[i].circle_times - 1;
             }
           }
@@ -147,7 +147,7 @@ export default {
         // 刪除圓圈後變成沒被選到的超市其選取次數減1
         this.$nextTick(()=>{
           for(let i = 0; i < this.marketData.length; i++){
-            if(this.marketData[i].location.distanceTo(location) < this.distance){
+            if(this.marketData[i].location.distanceTo(location) < this.range){
               this.marketData[i].circle_times = this.marketData[i].circle_times - 1;
               // console.log(this.mrtData[i].circle_times);
             }

@@ -11,19 +11,14 @@
                 <label for="job" class="label_lt">行業</label>
                 <b-form-select v-model="jobs_selected" :options="jobs" class="job"></b-form-select>
                 <label for="sb-inline" class="label_lt">距離</label>
-
-                <b-form-spinbutton id="sb-inline" v-model="distance" inline></b-form-spinbutton>
-
                 <!-- 應該可以用相對位置等方式去調整pop的位置 -->
-                <input class="form-range dis_range" id="range-1" v-model="distance"  type="range" min="300" max="1500" v-b-popover.hover.top="distance"></input>  
-
+                <input class="form-range dis_range" id="range-1" v-model="range"  type="range" min="300" max="1500" v-b-popover.hover.top="range"></input>  
               </div>
               <!-- 圖例modal, 參數為行業 -->
-              <!-- <Icon :jobType="jobs" :distance="distance"/> -->
+              <!-- <Icon :jobType="jobs" :range="range"/> -->
             </b-tab>
             <b-tab title="圖表">
               <b-card-text>圖表</b-card-text>
-              
             </b-tab>
           </b-tabs>
         </b-card>
@@ -33,119 +28,26 @@
             <b-tab title="評分" active>
               <span style="text-align:left; font-weight:bold; float:left">加權調整</span>
               <span style="text-align:left; font-weight:bold; float:right">評分</span><br><br>
-              
-              <div style="height:200px; overflow:auto">
-              <div v-if="jobs_selected === 'a'"><!--切換行業-->
-                <div style="width:300px; text-align:center;"><!--幼兒園-->
-                  <div style="width:auto; *width:100px; margin:0 auto; display:inline-block;">
-                      <span style="width:auto; display:block; text-align:center;">公園
-                        <input type="checkbox" style="width:20px; height:20px; float:left">
-                      </span>
-                      <label for="customRange1" class="form-label">{{scorepark}}%</label><!--可任意調分-->
-                      <input type="range" class="form-range" id="customRange1" v-model="scorepark"><br><br>
-                      <span style="width:auto; display:block; text-align:center;">捷運站
-                        <input type="checkbox" style="width:20px; height:20px; float:left">
-                      </span>
-                      <label for="customRange1" class="form-label">{{scoremrtone}}%</label>
-                      <input type="range" class="form-range" id="customRange1" v-model="scoremrtone"><br><br>
-                      <span style="width:auto; display:block; text-align:center;">租金
-                        <input type="checkbox" style="width:20px; height:20px; float:left">
-                      </span>
-                      <label for="customRange1" class="form-label">{{scoremoneyone}}%</label>
-                      <input type="range" class="form-range" id="customRange1" v-model="scoremoneyone"><br><br>
-                  </div>
-                </div>
-              </div>
-              <div v-else-if="jobs_selected === 'b'">
-                <div style="width:300px; text-align:center;"><!--機車行-->
-                  <div style="width:auto; *width:100px; margin:0 auto; display:inline-block;">
-                      <span style="width:auto; display:block; text-align:center;">市場
-                        <input type="checkbox" style="width:20px; height:20px; float:left">
-                      </span>
-                      <label for="customRange1" class="form-label">{{scoremarket}}%</label>
-                      <input type="range" class="form-range" id="customRange1" v-model="scoremarket">
-                      <div style="width:300px; text-align:center;"><!--市場細項-->
-                        <div style="width:auto; *width:100px; margin:0 auto; display:inline-block;">
-                            <span style="width:auto; display:block; text-align:center;">小北
-                              <input type="checkbox" style="width:20px; height:20px; float:left">
-                            </span>
-                            <span style="width:auto; display:block; text-align:center;">全聯
-                              <input type="checkbox" style="width:20px; height:20px; float:left">
-                            </span>
-                            <span style="width:auto; display:block; text-align:center;">美廉社
-                              <input type="checkbox" style="width:20px; height:20px; float:left">
-                            </span><br>
-                        </div>
-                      </div>
-                      <span style="width:auto; display:block; text-align:center;">捷運站
-                        <input type="checkbox" style="width:20px; height:20px; float:left">
-                      </span>
-                      <label for="customRange1" class="form-label">{{scoremrttwo}}%</label>
-                      <input type="range" class="form-range" id="customRange1" v-model="scoremrttwo"><br><br>
-                      <span style="width:auto; display:block; text-align:center;">租金
-                        <input type="checkbox" style="width:20px; height:20px; float:left">
-                      </span>
-                      <label for="customRange1" class="form-label">{{scoremoneytwo}}%</label>
-                      <input type="range" class="form-range" id="customRange1" v-model="scoremoneytwo"><br><br>
-                  </div>
-                </div>
-              </div>
-              <div v-else>
-                <div style="width:300px; text-align:center;"><!--健身房-->
-                  <div style="width:auto; *width:100px; margin:0 auto; display:inline-block;">
-                      <span style="width:auto; display:block; text-align:center;">百貨公司
-                        <input type="checkbox" style="width:20px; height:20px; float:left">
-                      </span>
-                      <label for="customRange1" class="form-label">{{scorede}}%</label>
-                      <input type="range" class="form-range" id="customRange1" v-model="scorede"><br><br>
-                      <!--<div style="width:300px; text-align:center;">
-                        <div style="width:auto; *width:100px; margin:0 auto; display:inline-block;">
-                          <span style="width:auto; display:block; text-align:center;">大遠百</span>
-                          <span style="width:auto; display:block; text-align:center;">新光三越</span>
-                          <span style="width:auto; display:block; text-align:center;">SOGO</span>
-                         </div>
-                      </div>-->
-                      <span style="width:auto; display:block; text-align:center;">捷運站
-                        <input type="checkbox" style="width:20px; height:20px; float:left">
-                      </span>
-                      <label for="customRange1" class="form-label">{{scoremrtthree}}%</label>
-                      <input type="range" class="form-range" id="customRange1" v-model="scoremrtthree"><br><br>
-                      <span style="width:auto; display:block; text-align:center;">租金
-                        <input type="checkbox" style="width:20px; height:20px; float:left">
-                      </span>
-                      <label for="customRange1" class="form-label">{{scoremoneythree}}%</label>
-                      <input type="range" class="form-range" id="customRange1" v-model="scoremoneythree"><br><br>
-                  </div>
-                </div>
-              </div>
-              </div>
+                
+              <label for="customRange1" class="form-label" >{{score}}</label><!--可任意調分-->
+              <input type="range" class="form-range" id="customRange1" v-model="score"><br><br>
               <!-- 加權條整區modal, 參數為行業 -->
-              <!-- <Score :jobType="jobs" :distance="distance"/> -->
+              <!-- <Score :jobType="jobs" :range="range"/> -->
             </b-tab>
             <b-tab title="總覽">
-              <div style="height:275px; overflow:auto">
-                <p>地點資訊</p>
-                <!--<div class="tableline">-->
+              <p>地點需求</p>
+              <div style="height:300px; overflow:auto">
+                <div class="tableline"></div>
                   <p style="text-align:left">預估需求：</p>
-                  <p></p>
                   <p style="text-align:left">租金：</p>
-                  <p></p>
                   <p style="text-align:left">地址：</p>
-                  <p></p>
-                  <p style="text-align:left">地址：</p>
-                  <p></p>
                   <p style="text-align:left">附近競爭者數：</p>
-                  <p></p>
                   <p style="text-align:left">附近市場數：</p>
-                  <p></p>
                   <p style="text-align:left">附近捷運站數：</p>
-                  <p></p>
                   <p style="text-align:left">區域平均租金：</p>
-                  <p></p>
-                <!--</div>-->
               </div>
               <!-- 參數...好像...很多... -->
-              <!-- <Overview :jobType="jobs" :distance="distance"/> -->
+              <!-- <Overview :jobType="jobs" :range="range"/> -->
             </b-tab>
           </b-tabs>
         </b-card>
@@ -154,14 +56,9 @@
     <div class="right">
       <div class="r_modal">
         <!-- 地圖modal-->
-        <!-- <Map v-if="isMap" :jobType="jobs" :distance="distance"/> -->
+        <Map v-if="isMap" :jobType="jobs" :range="range" />
         <!-- 樹枝modal-->
-        <!-- <Branch v-if="!isMap" :jobType="jobs" :distance="distance"/> -->
-      </div>
-      <div class="r_button">
-        <b-button variant="outline-primary">新增選址地點</b-button><br><br>
-        <b-button variant="outline-secondary">刪除選址地點</b-button><br><br>
-        <b-button @click="toggleModal" variant="outline-info">切換模式</b-button>
+        <!-- <Branch v-if="!isMap" :jobType="jobs" :range="range"/> -->
       </div>
     </div>
   </div>  
@@ -175,12 +72,12 @@
 // 左下總覽
 // import Overview from './components/Overview.vue'
 // 右方地圖
-// import Map from './components/Map.vue'
+import Map from './components/Map.vue'
 // 右方樹枝
 // import Branch from './components/Branch.vue'
 
 export default {
-  // components:{Block},
+  components:{Map},
   data(){
     return{
       // 左上行業select
@@ -191,20 +88,11 @@ export default {
         {value:'c', text:'健身房'}
       ],
       // 左上距離調整
-      distance: 50,
+      range: 300,
       // 判斷右方模式
       isMap: true,
       // 應該要有一個儲存選定地點的array? 加權modal會計算並回傳加權分數(假設icon有encode分數高低)
-      scorepark: 50,
-      scoremrtone:50,
-      scoremoneyone:50,
-      scoremarket:50,
-      scoremrttwo:50,
-      scoremoneytwo:50,
-      scorede:50,
-      scoremrtthree:50,
-      scoremoneythree:50,
-      score:50
+      score: 50
     }
   }
 }
@@ -267,16 +155,20 @@ export default {
   text-align: center;
   margin-right: 20px;
 }
-.sizw-check{
-  width: 30px;
-  height: 30px;
+.tableline{
+  position: relative;
+  margin: 0 auto;
+  height: 1px;
+  background-color: black;
 }
-.le{
-  text-align:left;
+.flex{
+  display:flex;
+  align-items:left;
+  margin-bottom: 10px;
 }
-[type="checkbox"] {
-  display: grid;
-  place-content: center;
+.custom-range{
+  width: 40%;
+  padding-top: 18px;
 }
 .dis_range{
   width: 160px;
