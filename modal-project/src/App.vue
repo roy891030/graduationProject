@@ -119,9 +119,6 @@
                 </div>
               </div>
               </div>
-                
-              <label for="customRange1" class="form-label" >{{score}}</label><!--可任意調分-->
-              <input type="range" class="form-range" id="customRange1" v-model="score"><br><br>
               <!-- 加權條整區modal, 參數為行業 -->
               <!-- <Score :jobType="jobs" :distance="distance"/> -->
             </b-tab>
