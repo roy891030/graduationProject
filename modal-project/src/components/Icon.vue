@@ -7,22 +7,22 @@
         <b-row align-v="center">
 
             <div v-show="select==='a'">
-                <img class="person" src="../svg/vuePerson.svg" alt="">
-                <img class="right" src="../svg/flower.svg" alt="">
-                <img class="left" src="../svg/flag.svg" alt="">
+                <img class="person" src="../assets/vuePerson.svg" alt="">
+                <img class="right" src="../assets/flower.svg" alt="">
+                <img class="left" src="../assets/flag.svg" alt="">
 
             </div>
 
             <div v-show="select === 'b'">
-                <img class="person" src="../svg/vuePerson.svg" alt="" width="80%">
-                <img class="right" src="../svg/bag.svg" alt="" width="80%">
-                <img class="left" src="../svg/flag.svg" alt="" width="80%">
+                <img class="person" src="../assets/vuePerson.svg" alt="" width="80%">
+                <img class="right" src="../assets/bag.svg" alt="" width="80%">
+                <img class="left" src="../assets/flag.svg" alt="" width="80%">
             </div>
 
             <div v-show="select === 'c'">
-                <img class="person" src="../svg/vuePerson.svg" alt="" width="80%">
-                <img class="right" src="../svg/bag.svg" alt="" width="80%">
-                <img class="left" src="../svg/flag.svg" alt="" width="80%">
+                <img class="person" src="../assets/vuePerson.svg" alt="" width="80%">
+                <img class="right" src="../assets/bag.svg" alt="" width="80%">
+                <img class="left" src="../assets/flag.svg" alt="" width="80%">
             </div>
 
         </b-row>
