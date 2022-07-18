@@ -2,7 +2,6 @@
   <div id="app">
     <!-- 左半控制區 -->
     <div class="left">
-<<<<<<< HEAD
       <!-- 左上的tab -->
       <b-card no-body class="left_top">
         <b-tabs card>
@@ -97,6 +96,15 @@ export default {
       // 判斷右方模式
       isMap: true,
       // 應該要有一個儲存選定地點的array? 加權modal會計算並回傳加權分數(假設icon有encode分數高低)
+      scorepark: 50,
+      scoremrtone:50,
+      scoremoneyone:50,
+      scoremarket:50,
+      scoremrttwo:50,
+      scoremoneytwo:50,
+      scorede:50,
+      scoremrtthree:50,
+      scoremoneythree:50,
       score: 50
     }
   }
@@ -159,12 +167,6 @@ export default {
   top: 5%;
   text-align: center;
   margin-right: 20px;
-}
-.tableline{
-  position: relative;
-  margin: 0 auto;
-  height: 1px;
-  background-color: black;
 }
 .flex{
   display:flex;
