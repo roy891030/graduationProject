@@ -2,6 +2,7 @@
   <div id="app">
     <!-- 左半控制區 -->
     <div class="left">
+<<<<<<< HEAD
       <!-- 左上的tab -->
       <b-card no-body class="left_top">
         <b-tabs card>
@@ -54,13 +55,14 @@
         </b-tabs>
       </b-card>
     </div>
+
     <!-- 右半圖表區 -->
     <div class="right">
       <div class="r_modal">
         <!-- 地圖modal-->
-        <Map v-if="isMap" :jobType="jobs" :distance="distance" />
+        <Map v-if="isMap" :jobType="jobs" :range="range" />
         <!-- 樹枝modal-->
-        <!-- <Branch v-if="!isMap" :jobType="jobs" :distance="distance"/> -->
+        <!-- <Branch v-if="!isMap" :jobType="jobs" :range="range"/> -->
       </div>
     </div>
   </div>
@@ -91,7 +93,7 @@ export default {
         {value:'c', text:'健身房'}
       ],
       // 左上距離調整
-      distance: 300,
+      range: 300,
       // 判斷右方模式
       isMap: true,
       // 應該要有一個儲存選定地點的array? 加權modal會計算並回傳加權分數(假設icon有encode分數高低)
