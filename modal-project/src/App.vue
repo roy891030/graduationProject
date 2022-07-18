@@ -11,7 +11,12 @@
                 <label for="job" class="label_lt">行業</label>
                 <b-form-select v-model="jobs_selected" :options="jobs" class="job"></b-form-select>
                 <label for="sb-inline" class="label_lt">距離</label>
+<<<<<<< HEAD
                 <b-form-spinbutton id="sb-inline" v-model="distance" inline></b-form-spinbutton>
+=======
+                <!-- 應該可以用相對位置等方式去調整pop的位置 -->
+                <input class="form-range dis_range" id="range-1" v-model="distance"  type="range" min="300" max="1500" v-b-popover.hover.top="distance"></input>  
+>>>>>>> d7bceecdc1d9fa827b81fe85c900ca752d3cf752
               </div>
               <!-- 圖例modal, 參數為行業 -->
               <!-- <Icon :jobType="jobs" :distance="distance"/> -->
@@ -28,6 +33,7 @@
             <b-tab title="評分" active>
               <span style="text-align:left; font-weight:bold; float:left">加權調整</span>
               <span style="text-align:left; font-weight:bold; float:right">評分</span><br><br>
+<<<<<<< HEAD
               
               <div style="height:200px; overflow:auto">
               <div v-if="jobs_selected === 'a'"><!--切換行業-->
@@ -114,6 +120,11 @@
                 </div>
               </div>
               </div>
+=======
+                
+              <label for="customRange1" class="form-label" >{{score}}</label><!--可任意調分-->
+              <input type="range" class="form-range" id="customRange1" v-model="score"><br><br>
+>>>>>>> d7bceecdc1d9fa827b81fe85c900ca752d3cf752
               <!-- 加權條整區modal, 參數為行業 -->
               <!-- <Score :jobType="jobs" :distance="distance"/> -->
             </b-tab>
@@ -124,9 +135,13 @@
                   <p style="text-align:left">預估需求：</p>
                   <p>123</p>
                   <p style="text-align:left">租金：</p>
+<<<<<<< HEAD
                   <p>456</p>
                   <p style="text-align:left">地址：</p>
                   <p>789</p>
+=======
+                  <p style="text-align:left">地址：</p>
+>>>>>>> d7bceecdc1d9fa827b81fe85c900ca752d3cf752
                   <p style="text-align:left">附近競爭者數：</p>
                   <p>789</p>
                   <p style="text-align:left">附近市場數：</p>
@@ -188,6 +203,7 @@ export default {
       // 判斷右方模式
       isMap: true,
       // 應該要有一個儲存選定地點的array? 加權modal會計算並回傳加權分數(假設icon有encode分數高低)
+<<<<<<< HEAD
       scorepark: 50,
       scoremrtone:50,
       scoremoneyone:50,
@@ -197,14 +213,11 @@ export default {
       scorede:50,
       scoremrtthree:50,
       scoremoneythree:50
+=======
+      score: 50
+>>>>>>> d7bceecdc1d9fa827b81fe85c900ca752d3cf752
     }
   }
-  // methods: {
-  // 切換右側模式
-  //   toggleModal(){
-  //     this.isMap = !this.isMap
-  //   }
-  // }
 }
 </script>
 
@@ -224,7 +237,7 @@ export default {
 }
 .left_top{
   height: 53%;
-  width: 450px;
+  width: 380px;
 }
 .setting{
   display: flex;
@@ -275,5 +288,8 @@ export default {
 [type="checkbox"] {
   display: grid;
   place-content: center;
+}
+.dis_range{
+  width: 160px;
 }
 </style>
