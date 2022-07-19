@@ -12,11 +12,11 @@
               <b-form-select v-model="jobs_selected" :options="jobs" class="job"></b-form-select>
               <label for="sb-inline" class="label_lt">距離</label>
               <!-- 應該可以用相對位置等方式去調整pop的位置 -->
-              <input class="form-range dis_range" id="range-1" v-model="distance" type="range" min="300" max="1500"
-                v-b-popover.hover.top="distance"></input>
+              <input class="form-range dis_range" id="range-1" v-model="range" type="range" min="300" max="1500" v-b-popover.hover.top="range"></input>
+            
             </div>
             <!-- 圖例modal, 參數為行業 -->
-            <Icon :jobType="jobs" :distance="distance" :select="jobs_selected" />
+            <Icon :jobType="jobs" :range="range" :select="jobs_selected" />
           </b-tab>
           <b-tab title="圖表">
             <b-card-text>圖表</b-card-text>
@@ -34,7 +34,7 @@
             <!--可任意調分-->
             <input type="range" class="form-range" id="customRange1" v-model="score"><br><br>
             <!-- 加權條整區modal, 參數為行業 -->
-            <!-- <Score :jobType="jobs" :distance="distance"/> -->
+            <!-- <Score :jobType="jobs" :range="range"/> -->
           </b-tab>
           <b-tab title="總覽">
             <p>地點需求</p>
@@ -49,7 +49,7 @@
               <p style="text-align:left">區域平均租金：</p>
             </div>
             <!-- 參數...好像...很多... -->
-            <!-- <Overview :jobType="jobs" :distance="distance"/> -->
+            <!-- <Overview :jobType="jobs" :range="range"/> -->
           </b-tab>
         </b-tabs>
       </b-card>
