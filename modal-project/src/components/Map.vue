@@ -1,5 +1,5 @@
 <template>
-<div style="height:100%">
+<div style="height:100%"> 
     <l-map style="height: 100%" :zoom="zoom" :center="center" @click="addSelect" id="lmap" :max-bounds="maxBounds">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <!-- 使用者選取範圍 -->

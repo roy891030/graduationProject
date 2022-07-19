@@ -16,15 +16,15 @@
           <p></p>
           <p style="text-align:left">區域平均租金：</p>
           <p></p>
-        <!--</div>-->
+        </div>
 </template>
 
 <script>
-export default {
-    props:['jobType', 'distance'],
-    methods:{
-    }
-}
+// export default {
+//     props:['jobType', 'distance'],
+//     methods:{
+//     }
+// }
 </script>
 
 <style scoped>
