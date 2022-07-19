@@ -73,6 +73,11 @@
                       <span style="width:auto; display:block; text-align:center;">SOGO</span>
                      </div>
                   </div>-->
+                  <span style="width:auto; display:block; text-align:center;">Ubike
+                    <input type="checkbox" style="width:20px; height:20px; float:left">
+                  </span>
+                  <label for="customRange1" class="form-label">{{scorebike}}%</label>
+                  <input type="range" class="form-range" id="customRange1" v-model="scorebike"><br><br>
                   <span style="width:auto; display:block; text-align:center;">捷運站
                     <input type="checkbox" style="width:20px; height:20px; float:left">
                   </span>
