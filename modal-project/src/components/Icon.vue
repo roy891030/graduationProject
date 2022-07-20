@@ -1,7 +1,3 @@
-<!-- icon animation -->
-<!-- 租金data如何流到這個vue -->
-
-
 <template>
     <b-container>
         <b-row align-v="center">
@@ -27,7 +23,6 @@
 
         </b-row>
     </b-container>
-
 </template>
 
 <script>
