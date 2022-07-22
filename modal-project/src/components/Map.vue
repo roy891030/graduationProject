@@ -1,25 +1,32 @@
 <template>
 <div style="height:100%"> 
-    <l-map style="height: 100%" :zoom="zoom" :center="center" @click="addSelect" id="lmap" :max-bounds="maxBounds">
+    <l-map style="height: 100%" :zoom="zoom" :center="center" @click="addSelect" id="lmap" :max-bounds="maxBounds" ref="myMap">
+        <!--底圖圖層-->
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <!-- 使用者選取範圍 -->
         <l-circle v-for="marker in newCircleDetails" :key="marker.id" :lat-lng="marker.location"
           :radius="range" :color="marker.color" :fillOpacity="marker.fillOpacity"/>
-        <!-- 創建標記點 !!!!!地圖上捷運站的位置跟我們顯示的有誤差!!!!--> 
-        <l-marker  v-for="item in mrt_filter()" :lat-lng="item.location">
+        <!--捷運站圖層-->
+        <l-layer-group ref="mrts">
+          <!-- 創建標記點 !!!!!地圖上捷運站的位置跟我們顯示的有誤差!!!!--> 
+          <l-marker  v-for="item in mrt_filter()" :lat-lng="item.location">
+            <!-- 標記點樣式 -->
+            <l-icon :icon-url="icon.iconType.mrt" :icon-size="icon.iconSize.zoom14.tri" />
+            <!-- 點擊跳出地點資訊 -->
+            <l-popup>{{ "捷運"+item.zh_name+"站" }}</l-popup>
+          </l-marker>
+        </l-layer-group>
+        <!--市場圖層-->
+        <l-layer-group ref="markets">
+          <!-- 創建標記點 -->
+          <l-marker  v-for="item in market_filter()" :lat-lng="item.location" >
           <!-- 標記點樣式 -->
-          <l-icon :icon-url="icon.iconType.mrt" :icon-size="icon.iconSize.tri" />
-          <!-- 點擊跳出地點資訊 -->
-          <l-popup>{{ "捷運"+item.zh_name+"站" }}</l-popup>
-        </l-marker>
-        <!-- 創建標記點 -->
-        <l-marker  v-for="item in market_filter()" :lat-lng="item.location" >
-        <!-- 標記點樣式 -->
-          <l-icon v-if="item.brand === '小北'" :icon-url="icon.iconType.小北" :icon-size="icon.iconSize.squ"/>
-          <l-icon v-if="item.brand === '全聯'" :icon-url="icon.iconType.全聯" :icon-size="icon.iconSize.squ"/>
-          <l-icon v-if="item.brand === '美廉社'" :icon-url="icon.iconType.美廉" :icon-size="icon.iconSize.squ"/>
-          <l-popup>{{ item.brand + item.name }}</l-popup>
-        </l-marker>
+            <l-icon v-if="item.brand === '小北'" :icon-url="icon.iconType.小北" :icon-size="icon.iconSize.zoom14.squ"/>
+            <l-icon v-if="item.brand === '全聯'" :icon-url="icon.iconType.全聯" :icon-size="icon.iconSize.zoom14.squ"/>
+            <l-icon v-if="item.brand === '美廉社'" :icon-url="icon.iconType.美廉" :icon-size="icon.iconSize.zoom14.squ"/>
+            <l-popup>{{ item.brand + item.name }}</l-popup>
+          </l-marker>
+        </l-layer-group>
         <l-control  class="r_button">
             <b-button variant="primary" @click="isPush">新增地點</b-button><br><br>
             <b-dropdown right text="刪除地點" V-if>
@@ -33,20 +40,20 @@
 
 <script>
 import { latLngBounds, latLng } from "leaflet";
-import {LMap, LTileLayer, LControl, LCircle, LCircleMarker, LMarker, LIcon, LPopup} from 'vue2-leaflet';
+import {LMap, LTileLayer, LControl, LCircle, LCircleMarker, LMarker, LIcon, LPopup, LLayerGroup} from 'vue2-leaflet';
 import "leaflet/dist/leaflet.css";
 import mrtjson from '../高捷.json';
 import market from '../超市.json';
 
 export default {
   props:['range'],
-  components: {LMap, LTileLayer, LControl, LCircle, LCircleMarker, LMarker, LIcon, LPopup},
+  components: {LMap, LTileLayer, LControl, LCircle, LCircleMarker, LMarker, LIcon, LPopup, LLayerGroup},
   data () {
     return {
-      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      url: 'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png',
       attribution:
-        '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      zoom: 10.8,//縮放比例
+        '&&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+      zoom: 14,//初始縮放比例
       center: [ 22.62, 120.33],// 地圖中心點
       push: false,//判斷使用者是否要新增選取地點
       newCircleDetails:[],//紀錄使用者選去地點與範圍資料
@@ -54,7 +61,7 @@ export default {
         [22.229573497276068, 119.66995239257814],
         [22.901501217049034, 120.8280395507814]
       ]),
-      icon: { // 可能可以用zoom加上if else去控制不同縮放比例時的icon大小(?)
+      icon: {
         iconType: {
           mrt: "http://localhost/mrt.png",
           小北: "http://localhost/小北.jpg",
@@ -62,16 +69,25 @@ export default {
           美廉: "http://localhost/美廉.png"
         },
         iconSize: {
-          tri: [41, 25],
-          squ: [25, 20]
+          zoom14: {
+            tri: [41, 25],
+            squ: [25, 20]
+          },
+          zoom18: {
+            tri: [0, 0],
+            squ: [0, 0]
+          }
         },
-        iconAnchor: [12, 41],
       },
       to_load_mrt: true,//控制建立mrtData的參數，避免mrtData一直重建(circle_times會被洗掉)
       mrtData: [],// 紀錄在圓圈範圍內要顯示的mrt
       to_load_market: true,//控制建立 marketData的參數，避免 marketData一直重建(circle_times會被洗掉)
       marketData:[]// 紀錄在圓圈範圍內要顯示的超市
     };
+  },
+  mounted () {
+    //縮放監聽事件
+    this.$refs.myMap.mapObject.addEventListener('zoomend', this.handleScroll, true);
   },
   methods:{
       addSelect(event) {// 新增使用者選取地點 與 週邊權重地點
@@ -172,6 +188,26 @@ export default {
           // console.log(element.circle_times)
         })
         return temp;
+      },
+      //地圖縮放之後決定該顯示的圖層
+      handleScroll(){
+        //獲取當前縮放大小
+        var temp = this.$refs.myMap.mapObject.getZoom();
+        //確認當前是否有圖層:有才能刪除圖層
+        if(this.$refs.myMap.mapObject.hasLayer(this.$refs.markets.mapObject) && this.$refs.myMap.mapObject.hasLayer(this.$refs.mrts.mapObject)){
+          if(temp <= 14){
+            //移除圖層
+            this.$refs.myMap.mapObject.removeLayer(this.$refs.markets.mapObject);
+            this.$refs.myMap.mapObject.removeLayer(this.$refs.mrts.mapObject);
+          }
+        }
+        else{
+          if(temp >= 14){
+            //加入圖層
+            this.$refs.myMap.mapObject.addLayer(this.$refs.markets.mapObject, false);
+            this.$refs.myMap.mapObject.addLayer(this.$refs.mrts.mapObject, false);
+          }
+        }
       }
   }
 }
