@@ -1,53 +1,166 @@
 <template>
+
     <b-container>
         <b-row align-v="center">
-
             <div v-show="select==='a'">
-                <img class="person" src="../assets/vuePerson.svg" alt="">
-                <img class="right" src="../assets/flower.svg" alt="">
-                <img class="left" src="../assets/flag.svg" alt="">
-
+                <svg-l v-b-tooltip.hover.v-warning.html="pKinder" class="person"></svg-l>
+                <img v-b-tooltip.hover.v-success.html="bKinder" class="right" src="../assets/flower.svg" alt="">
+                <img v-b-tooltip.hover.v-primary.html="fKinder" class="left" src="../assets/flag.svg" alt="">
             </div>
 
             <div v-show="select === 'b'">
-                <img class="person" src="../assets/vuePerson.svg" alt="" width="80%">
-                <img class="right" src="../assets/bag.svg" alt="" width="80%">
-                <img class="left" src="../assets/flag.svg" alt="" width="80%">
+                <svg-l v-b-tooltip.hover.v-warning.html="pScooter" class="person"></svg-l>
+                <img v-b-tooltip.hover.v-success.html="bScooter" class="right" src="../assets/bag.svg" alt=""
+                    width="80%">
+                <img v-b-tooltip.hover.v-primary.html="fScooter" class="left" src="../assets/flag.svg" alt=""
+                    width="80%">
             </div>
 
             <div v-show="select === 'c'">
-                <img class="person" src="../assets/vuePerson.svg" alt="" width="80%">
-                <img class="right" src="../assets/bag.svg" alt="" width="80%">
-                <img class="left" src="../assets/flag.svg" alt="" width="80%">
+                <svg-l v-b-tooltip.hover.v-warning.html="pGym" class="person"></svg-l>
+                <img v-b-tooltip.hover.v-success.html="bGym" class="right" src="../assets/bag.svg" alt="" width="80%">
+                <img v-b-tooltip.hover.v-primary.html="fGym" class="left" src="../assets/flag.svg" alt="" width="80%">
             </div>
 
         </b-row>
+
+
     </b-container>
+
 </template>
 
 <script>
+import * as d3 from 'd3';
+
+
+
 export default {
-    props: ['jobType','select' ],
+    props: ['jobType','select','range' ],
 
     data(){
         return{
+            pKinder: { title: 'person <em>幼兒園</em>' },
+            bKinder: { title: 'flower <em>幼兒園</em>' },
+            fKinder: { title: 'flag <em>幼兒園</em>' },
+            pScooter: { title: 'person <em>機車行</em>' },
+            bScooter: { title: 'bag <em>機車行</em>' },
+            fScooter: { title: 'flag <em>機車行</em>' },
+            pGym: { title: 'person <em>健身房</em>' },
+            bGym: { title: 'bag <em>健身房</em>' },
+            fGym: { title: 'flag <em>健身房</em>' },
             roy: "cool",
         }
 
     },
     methods:{
+        }
     }
 
-}
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+customElements.define("svg-l", class extends HTMLElement {
+    connectedCallback() {
+        setTimeout(() => { // make sure inner DOM is parsed
+        //max r=70
+        //min r= -33
+
+            let r=getRandom(-20,70);
+            let x = 205.1-r;
+            let y = 23.3+r;
+            this.innerHTML = `<svg width="130" version="1.1" id="enPHxEQtrXM1" text-rendering="geometricPrecision" shape-rendering="geometricPrecision"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    viewBox="0 0 193.4 303" style="enable-background:new 0 0 193.4 303;" xml:space="preserve">
+    <style type="text/css">
+        .st0 {
+            fill: #E8BA00;
+            stroke: #0F0707;
+            stroke-width: 5;
+        }
+
+        .st1 {
+            fill: #FFD767;
+            stroke: #230707;
+            stroke-width: 3.66;
+            stroke-miterlimit: 4.58;
+        }
+
+        .st2 {
+            fill: #153832;
+            stroke: #FFFFFF;
+        }
+
+        .st3 {
+            fill: #F0F0F2;
+            stroke: #070404;
+            stroke-width: 3;
+        }
+
+        .st4 {
+            fill: #FFD767;
+            stroke: #000000;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .st5 {
+            fill: #FFFFFF;
+            stroke: #000000;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .st6 {
+            fill: #FFD767;
+            stroke: #000000;
+            stroke-width: 3;
+        }
+
+        .st7 {
+            fill: #FFD767;
+            stroke: #000000;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .st8 {
+            fill: none;
+            stroke: #CC2A09;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .st9 {
+            fill: #94BEFF;
+            stroke: #000000;
+            stroke-width: 4;
+        }
+    </style>
+    <ellipse class="st0" cx="88.2" cy="256.4" rx="85.7" ry="44.1" />
+    <circle class="st1" cx="86.3" cy="76.8" r="48.6" />
+    <circle class="st2" cx="103.2" cy="83.3" r="6.4" />
+    <circle class="st2" cx="71.4" cy="83.3" r="6.4" />
+    <path class="st3" d="M33.4,56.3c25.4,22.4,86,17.5,105.4-5C70.7-25.1,65.4,5,61.8,20.8S31,47.7,33.4,56.3z" />
+    <path class="st4" d="M73.1,230.5c18.6-8.5,10,36-0.6,36.3C53.3,269.4,54,248.7,73.1,230.5L73.1,230.5z" />
+    <path class="st4" d="M95.7,231.7c20.9-8.2,17,35.2,5,35.5C78.5,265.2,99.4,235.3,95.7,231.7L95.7,231.7z" />
+    <path class="st5" d="M40.3,135.7l0.3,93.3c0,6.5,5.3,11.7,11.8,11.7l0,0h66.3c6.4,0,11.7-5.2,11.8-11.6l0.9-94.1" />
+    <path class="st6" d="M39.3,167.2c-9.5,11.8-28-0.5-30.3-22.7C2,139,13.4,124.4,39.3,167.2z" />
+    <path class="st7" d="M132.6,166.4c25.3,32.3,75.1,11.9,54.4-0.8C170,172.4,135.2,156.8,132.6,166.4L132.6,166.4z" />
+    <path class="st8" d="M67.3,99.5c6.2,17.3,31.4,17.9,38,0" />
+    <path class="st9" d="M40.3,${x}l0.3,${y}c0,6.5,5.3,11.7,11.8,11.7l0,0h66.3c6.4,0,11.7-5.2,11.8-11.6l0.9-${y}" />
+</svg>`;
+        });
+    }
+})
+
 </script>
 
 <style scoped>
-
-
-
-
-
-
 
 @keyframes example {
     0% {
@@ -70,7 +183,7 @@ export default {
     }
 
     50% {
-    top: 100px;
+    top: 150px;
     left: 190px;
     transform: rotate(45deg)
 
