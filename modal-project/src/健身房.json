@@ -1,0 +1,338 @@
+[
+{"brand":"World Gym","store":"101店","address":"台北市信義區市府路45號6F","Latitude":"25.0341222","Longitude":"121.5640212"}
+,
+{"brand":"World Gym","store":"民生店","address":"台北市松山區民生東路三段156號B1","Latitude":"25.0573617","Longitude":"121.5477518"}
+,
+{"brand":"World Gym","store":"公館店","address":"台北市中正區羅斯福路四段68號2F","Latitude":"25.0146062","Longitude":"121.534219"}
+,
+{"brand":"World Gym","store":"站前店","address":"台北市中正區忠孝西路一段50號6F","Latitude":"25.046222","Longitude":"121.51583"}
+,
+{"brand":"World Gym","store":"寧夏店","address":"臺北市大同區寧夏路11號B1","Latitude":"25.0546656","Longitude":"121.5150315"}
+,
+{"brand":"World Gym","store":"民權西店","address":"臺北市大同區民權西路136號1F&B1","Latitude":"25.0627354","Longitude":"121.5164841"}
+,
+{"brand":"World Gym","store":"大直北安店","address":"臺北市中山區北安路554巷19號B1","Latitude":"25.0801763","Longitude":"121.5489498"}
+,
+{"brand":"World Gym","store":"大直店","address":"台北市中山區堤頂大道二段588號","Latitude":"25.0843794","Longitude":"121.55968"}
+,
+{"brand":"World Gym","store":"長春店","address":"臺北市中山區長春路90號","Latitude":"25.0546795","Longitude":"121.5271992"}
+,
+{"brand":"World Gym","store":"民權東店","address":"台北市中山區民權東路三段72號及74號B1","Latitude":"25.062139","Longitude":"121.5427606"}
+,
+{"brand":"World Gym","store":"民生圓環店","address":"臺北市松山區民生東路五段196號B1","Latitude":"25.058566","Longitude":"121.5644021"}
+,
+{"brand":"World Gym","store":"南京店","address":"台北市松山區南京東路五段196號","Latitude":"25.0511388","Longitude":"121.564383"}
+,
+{"brand":"World Gym","store":"麗水店","address":"臺北市大安區麗水街18號1F","Latitude":"25.0309548","Longitude":"121.5285416"}
+,
+{"brand":"World Gym","store":"統領店","address":"台北市大安區忠孝東路四段201號3F","Latitude":"25.0416768","Longitude":"121.551655"}
+,
+{"brand":"World Gym","store":"大安店","address":"台北市大安區信義路四段6號3F","Latitude":"25.0329633","Longitude":"121.5453385"}
+,
+{"brand":"World Gym","store":"西門店","address":"台北市萬華區西寧南路36號B1","Latitude":"25.0452425","Longitude":"121.5064943"}
+,
+{"brand":"World Gym","store":"通化店","address":"臺北市大安區通化街77號1F(預售中心)","Latitude":"25.0301057","Longitude":"121.554322"}
+,
+{"brand":"World Gym","store":"光復店","address":"臺北市大安區忠孝東路四段330號B1","Latitude":"25.0410878","Longitude":"121.5575167"}
+,
+{"brand":"World Gym","store":"松仁店","address":"臺北市信義區松仁路277號1F","Latitude":"25.0243794","Longitude":"121.5699496"}
+,
+{"brand":"World Gym","store":"松隆店","address":"台北市信義區松隆路125號1F","Latitude":"25.0470011","Longitude":"121.5718341"}
+,
+{"brand":"World Gym","store":"天母店","address":"台北市士林區中山北路七段34號","Latitude":"25.1198919","Longitude":"121.5311995"}
+,
+{"brand":"World Gym","store":"天母德行店","address":"台北市士林區德行東路331巷35號","Latitude":"25.111802","Longitude":"121.537904"}
+,
+{"brand":"World Gym","store":"北投中和店","address":"台北市北投區中和街366-1號1F","Latitude":"25.1419064","Longitude":"121.4992603"}
+,
+{"brand":"World Gym","store":"內湖店","address":"台北市內湖區康寧路三段72號8F","Latitude":"25.0696916","Longitude":"121.6114623"}
+,
+{"brand":"World Gym","store":"福華店","address":"台北市內湖區民權東路六段180巷6號B2","Latitude":"25.0681913","Longitude":"121.5919098"}
+,
+{"brand":"World Gym","store":"飛動天母店","address":"臺北市士林區中山北路七段73號","Latitude":"25.1211424","Longitude":"121.531113"}
+,
+{"brand":"World Gym","store":"飛動公館店","address":"臺北市大安區羅斯福路三段281號1F","Latitude":"25.018002","Longitude":"121.5313811"}
+,
+{"brand":"World Gym","store":"信義店","address":"基隆市信義區義昭里3鄰信一路92號1F","Latitude":"25.1286591","Longitude":"121.7511136"}
+,
+{"brand":"World Gym","store":"板橋雙十店","address":"新北市板橋區雙十路二段143號1F","Latitude":"25.0279892","Longitude":"121.4747628"}
+,
+{"brand":"World Gym","store":"板橋重慶店","address":"新北市板橋區重慶路247號B1","Latitude":"25.0004507","Longitude":"121.4636022"}
+,
+{"brand":"World Gym","store":"板橋府中店","address":"新北市板橋區中山路一段10號1F","Latitude":"25.0078652","Longitude":"121.4601988"}
+,
+{"brand":"World Gym","store":"板橋中山店","address":"新北市板橋區中山路二段326號1F","Latitude":"25.0197386","Longitude":"121.4811851"}
+,
+{"brand":"World Gym","store":"汐止店","address":"新北市汐止區中興路168號2F","Latitude":"25.065599","Longitude":"121.6319695"}
+,
+{"brand":"World Gym","store":"新店店","address":"新北市新店區中興路三段1號5F","Latitude":"24.9767393","Longitude":"121.5463059"}
+,
+{"brand":"World Gym","store":"永和店","address":"新北市永和區仁愛路309號B1","Latitude":"25.0077737","Longitude":"121.5034366"}
+,
+{"brand":"World Gym","store":"永和民權店","address":"新北市永和區民權路53號B1","Latitude":"24.9966733","Longitude":"121.5201917"}
+,
+{"brand":"World Gym","store":"中和店","address":"新北市中和區中山路三段35-3號1F","Latitude":"25.005635","Longitude":"121.478544"}
+,
+{"brand":"World Gym","store":"景平店","address":"新北市中和區景平路182號1樓","Latitude":"24.9924086","Longitude":"121.5164034"}
+,
+{"brand":"World Gym","store":"土城店","address":"新北市土城區青雲路152號5F","Latitude":"24.9831458","Longitude":"121.4585622"}
+,
+{"brand":"World Gym","store":"土城中央店","address":"新北市土城區中央路二段191號1F","Latitude":"24.9753886","Longitude":"121.44227"}
+,
+{"brand":"World Gym","store":"三重店","address":"新北市三重區重新路二段78號1F","Latitude":"25.0619496","Longitude":"121.4974124"}
+,
+{"brand":"World Gym","store":"北新莊店","address":"新北市新莊區幸福路778號B1","Latitude":"25.0494318","Longitude":"121.4471942"}
+,
+{"brand":"World Gym","store":"新莊店","address":"新北市新莊區民安路188巷5號B2","Latitude":"25.0230568","Longitude":"121.4247951"}
+,
+{"brand":"World Gym","store":"泰山店","address":"新北市泰山區明志路三段83號B1","Latitude":"25.0416024","Longitude":"121.4252248"}
+,
+{"brand":"World Gym","store":"蘆洲店","address":"新北市蘆洲區民族路31號之5","Latitude":"25.0850474","Longitude":"121.4777242"}
+,
+{"brand":"World Gym","store":"淡水店","address":"新北市淡水區大忠街89號1F","Latitude":"25.1776989","Longitude":"121.446651"}
+,
+{"brand":"World Gym","store":"林口店","address":"桃園市龜山區復興一路222號1F","Latitude":"25.0576","Longitude":"121.3655261"}
+,
+{"brand":"World Gym","store":"中壢店","address":"桃園市中壢區中山路136號2F","Latitude":"24.9559414","Longitude":"121.2250089"}
+,
+{"brand":"World Gym","store":"內壢店","address":"桃園市中壢區中華路一段667號2F","Latitude":"24.9690493","Longitude":"121.2503736"}
+,
+{"brand":"World Gym","store":"平鎮店","address":"桃園市平鎮區環南路二段265號B1","Latitude":"24.9405341","Longitude":"121.2152523"}
+,
+{"brand":"World Gym","store":"大有店","address":"桃園市桃園區大有路630號1F","Latitude":"25.0154662","Longitude":"121.3171646"}
+,
+{"brand":"World Gym","store":"復興店","address":"桃園市桃園區復興路186號1F","Latitude":"24.9903137","Longitude":"121.3113974"}
+,
+{"brand":"World Gym","store":"國強店","address":"桃園市桃園區國強一街136號","Latitude":"24.992793","Longitude":"121.2865756"}
+,
+{"brand":"World Gym","store":"大園店","address":"桃園市大園區中山南路268號1F","Latitude":"25.0597353","Longitude":"121.1997303"}
+,
+{"brand":"World Gym","store":"南崁店","address":"桃園市蘆竹區南崁路265號1F","Latitude":"25.049484","Longitude":"121.2925872"}
+,
+{"brand":"World Gym","store":"巨城店","address":"新竹市東區中央路229號6F","Latitude":"24.8094861","Longitude":"120.974721"}
+,
+{"brand":"World Gym","store":"國賓店","address":"新竹市北區中山路78號1F","Latitude":"24.8049653","Longitude":"120.9658856"}
+,
+{"brand":"World Gym","store":"林森店","address":"新竹市東區林森路273號2F","Latitude":"24.7975608","Longitude":"120.9621628"}
+,
+{"brand":"World Gym","store":"中正店","address":"新竹市東區中正路110號1F","Latitude":"24.8058455","Longitude":"120.969348"}
+,
+{"brand":"World Gym","store":"竹北店","address":"新竹縣竹北市光明六路東一段189號","Latitude":"24.8212308","Longitude":"121.025402"}
+,
+{"brand":"World Gym","store":"苑裡店","address":"苗栗縣苑裡鎮為公路65-1號","Latitude":"24.4426396","Longitude":"120.6525605"}
+,
+{"brand":"World Gym","store":"竹南店","address":"苗栗縣竹南鎮民權街51巷51號B1","Latitude":"24.6857902","Longitude":"120.8780016"}
+,
+{"brand":"World Gym","store":"學府店","address":"台中市南區學府路170號B1","Latitude":"24.129544","Longitude":"120.673965"}
+,
+{"brand":"World Gym","store":"東興店","address":"台中市南區東興路一段81號","Latitude":"24.1204054","Longitude":"120.655457"}
+,
+{"brand":"World Gym","store":"美村店","address":"台中市西區美村路一段22號B1","Latitude":"24.1546647","Longitude":"120.6617329"}
+,
+{"brand":"World Gym","store":"一中店","address":"台中市北區三民路三段125號2F","Latitude":"24.1488067","Longitude":"120.6833152"}
+,
+{"brand":"World Gym","store":"崇德店","address":"台中市北屯區崇德路二段16號1F","Latitude":"24.1687924","Longitude":"120.6856589"}
+,
+{"brand":"World Gym","store":"進化北店","address":"台中市北區進化北路365號B1","Latitude":"24.1629374","Longitude":"120.6793342"}
+,
+{"brand":"World Gym","store":"東山店","address":"台中市北屯區東山路一段310號","Latitude":"24.1758384","Longitude":"120.7213539"}
+,
+{"brand":"World Gym","store":"東海店","address":"台中市西屯區玉門路81號","Latitude":"24.1862185","Longitude":"120.6098321"}
+,
+{"brand":"World Gym","store":"西屯店","address":"臺中市西屯區西屯路二段258號1F","Latitude":"24.1713139","Longitude":"120.6469309"}
+,
+{"brand":"World Gym","store":"烏日店","address":"臺中市烏日區光日路52號","Latitude":"24.1033511","Longitude":"120.6245892"}
+,
+{"brand":"World Gym","store":"黎明店","address":"臺中市南屯區黎明路二段425號1F","Latitude":"24.1519355","Longitude":"120.6345641"}
+,
+{"brand":"World Gym","store":"豐原店","address":"臺中市豐原區南陽路508號","Latitude":"24.2492949","Longitude":"120.720893"}
+,
+{"brand":"World Gym","store":"大雅店","address":"台中市大雅區民生路一段100號1F","Latitude":"24.2263831","Longitude":"120.6480768"}
+,
+{"brand":"World Gym","store":"沙鹿店","address":"台中市沙鹿區台灣大道七段和英才路交叉口(預售中心)","Latitude":"24.2271185","Longitude":"120.5757385"}
+,
+{"brand":"World Gym","store":"清水店","address":"台中市清水區中山路129號","Latitude":"24.2650255","Longitude":"120.5736583"}
+,
+{"brand":"World Gym","store":"大甲店","address":"臺中市大甲區仁愛街25號1F","Latitude":"24.3462684","Longitude":"120.6182142"}
+,
+{"brand":"World Gym","store":"飛動公益店","address":"臺中市南屯區大墩路632號1F","Latitude":"24.1505105","Longitude":"120.6500167"}
+,
+{"brand":"World Gym","store":"和平店","address":"彰化縣彰化市和平路57號11F(彰化銀行)","Latitude":"24.0802532","Longitude":"120.5401184"}
+,
+{"brand":"World Gym","store":"員林店","address":"彰化縣員林市員東路二段490號6F","Latitude":"23.9576915","Longitude":"120.5773182"}
+,
+{"brand":"World Gym","store":"鹿港店","address":"彰化縣鹿港鎮民族路196號2樓","Latitude":"24.0540815","Longitude":"120.4340526"}
+,
+{"brand":"World Gym","store":"斗六店","address":"雲林縣斗六市漢口路76號","Latitude":"23.7115873","Longitude":"120.5386718"}
+,
+{"brand":"World Gym","store":"民族店","address":"嘉義市西區民族路608號2F","Latitude":"23.4757863","Longitude":"120.4456188"}
+,
+{"brand":"World Gym","store":"FOCUS店","address":"台南市中西區中山路166號B1","Latitude":"22.9955969","Longitude":"120.2100636"}
+,
+{"brand":"World Gym","store":"中華西店","address":"臺南市中西區中華西路二段650號","Latitude":"23.0057511","Longitude":"120.1868177"}
+,
+{"brand":"World Gym","store":"長榮店","address":"台南市東區長榮路一段181號3F","Latitude":"22.984053","Longitude":"120.2175805"}
+,
+{"brand":"World Gym","store":"國賓店","address":"台南市東區中華東路一段70號2F","Latitude":"22.9961552","Longitude":"120.234176"}
+,
+{"brand":"World Gym","store":"樹林店","address":"臺南市南區樹林街二段227號","Latitude":"22.9860505","Longitude":"120.1969566"}
+,
+{"brand":"World Gym","store":"西門店","address":"臺南市北區西門路四段61號及四段65巷47號","Latitude":"23.0075524","Longitude":"120.2064681"}
+,
+{"brand":"World Gym","store":"永康店","address":"台南市永康區中華路725之1號B1","Latitude":"23.0172032","Longitude":"120.2277332"}
+,
+{"brand":"World Gym","store":"新營店","address":"台南市新營區中山路56之3號1樓","Latitude":"23.306078","Longitude":"120.320357"}
+,
+{"brand":"World Gym","store":"善化店","address":"台南市善化區中正路332號4F(善化郵局)","Latitude":"23.1268554","Longitude":"120.2941051"}
+,
+{"brand":"World Gym","store":"中華店","address":"高雄市前金區中華三路149號1F","Latitude":"22.6304999","Longitude":"120.2952599"}
+,
+{"brand":"World Gym","store":"大統和平店","address":"高雄市苓雅區和平一路218號10F","Latitude":"22.6308988","Longitude":"120.3178748"}
+,
+{"brand":"World Gym","store":"SOGO店","address":"高雄市前鎮區三多三路217號16F","Latitude":"22.6142119","Longitude":"120.3060455"}
+,
+{"brand":"World Gym","store":"寶成店","address":"高雄市前鎮區民權二路8號1F","Latitude":"22.6055112","Longitude":"120.3093612"}
+,
+{"brand":"World Gym","store":"陽明店","address":"高雄市三民區陽明路201號","Latitude":"22.6414271","Longitude":"120.3415859"}
+,
+{"brand":"World Gym","store":"博愛店","address":"高雄市左營區博愛二路320號1樓","Latitude":"22.6637641","Longitude":"120.3036624"}
+,
+{"brand":"World Gym","store":"岡山店","address":"高雄市岡山區民有路68號5F","Latitude":"22.7921402","Longitude":"120.2963979"}
+,
+{"brand":"World Gym","store":"楠梓店","address":"高雄市楠梓區德民路951號","Latitude":"22.720419","Longitude":"120.28898"}
+,
+{"brand":"World Gym","store":"文衡店","address":"高雄市鳳山區文衡路506號1F","Latitude":"22.6412405","Longitude":"120.3494284"}
+,
+{"brand":"World Gym","store":"鳳山店","address":"高雄市鳳山區中山路149號","Latitude":"22.622595","Longitude":"120.35813"}
+,
+{"brand":"World Gym","store":"自由店","address":"屏東縣屏東市自由路550號B1","Latitude":"22.6838115","Longitude":"120.486942"}
+,
+{"brand":"World Gym","store":"逢甲店","address":"屏東縣屏東市逢甲路60號1樓","Latitude":"22.6707397","Longitude":"120.4873977"}
+,
+{"brand":"World Gym","store":"潮州店","address":"屏東縣潮州鎮延平路117號2F","Latitude":"22.5544663","Longitude":"120.5402678"}
+,
+{"brand":"World Gym","store":"東港店","address":"屏東縣東港鎮光復路一段293號2F","Latitude":"22.4696423","Longitude":"120.4601219"}
+,
+{"brand":"World Gym","store":"友愛店","address":"宜蘭縣宜蘭市舊城東路50號5F","Latitude":"24.7577931","Longitude":"121.7566483"}
+,
+{"brand":"World Gym","store":"羅東店","address":"宜蘭縣羅東鎮興東路85號","Latitude":"24.6783311","Longitude":"121.7684031"}
+,
+{"brand":"World Gym","store":"國聯店","address":"花蓮縣花蓮市國聯五路58號","Latitude":"23.9903831","Longitude":"121.6058218"}
+,
+{"brand":"World Gym","store":"草屯店","address":"南投縣草屯鎮中山街208號1F","Latitude":"23.9783457","Longitude":"120.6830707"}
+,
+{"brand":"健身工廠","store":"三重廠","address":"新北市三重區龍門路6號2樓","Latitude":"25.0713335","Longitude":"121.4947579"}
+,
+{"brand":"健身工廠","store":"新莊廠","address":"新北市新莊區中和街157號B1","Latitude":"25.0498546","Longitude":"121.4472241"}
+,
+{"brand":"健身工廠","store":"中和廠","address":"新北市中和區景平路188號4樓","Latitude":"24.9923499","Longitude":"121.5166344"}
+,
+{"brand":"健身工廠","store":"淡水廠","address":"新北市淡水區北新路182巷16號B1","Latitude":"25.1779953","Longitude":"121.4490459"}
+,
+{"brand":"健身工廠","store":"板橋廠","address":"新北市板橋區民生路一段28之1號","Latitude":"25.012857","Longitude":"121.4763677"}
+,
+{"brand":"健身工廠","store":"新店廠","address":"新北市新店區北宜路一段2號","Latitude":"24.9578506","Longitude":"121.5375994"}
+,
+{"brand":"健身工廠","store":"信義廠","address":"台北市信義區松壽路22號4樓","Latitude":"25.0355225","Longitude":"121.5681208"}
+,
+{"brand":"健身工廠","store":"汐止廠","address":"新北市汐止區建成路58號B1之2","Latitude":"25.0731688","Longitude":"121.6635218"}
+,
+{"brand":"健身工廠","store":"土城廠","address":"新北市土城區學府路一段113號B1","Latitude":"24.9874372","Longitude":"121.4556203"}
+,
+{"brand":"健身工廠","store":"新埔廠","address":"新北市板橋區民生路三段323號","Latitude":"25.0311884","Longitude":"121.4632486"}
+,
+{"brand":"健身工廠","store":"健康廠","address":"台北市松山區健康路156號B1","Latitude":"25.0533254","Longitude":"121.5572449"}
+,
+{"brand":"健身工廠","store":"永和廠","address":"新北市永和區福和路103號B1","Latitude":"25.00774","Longitude":"121.521863"}
+,
+{"brand":"健身工廠","store":"石牌廠","address":"台北市北投區裕民六路2號B1","Latitude":"25.1134295","Longitude":"121.517272"}
+,
+{"brand":"健身工廠","store":"長春廠","address":"台北市中山區遼寧街177號B2-B3","Latitude":"25.0531213","Longitude":"121.5421809"}
+,
+{"brand":"健身工廠","store":"竹北廠","address":"新竹縣竹北市復興一街251號4F","Latitude":"24.8118143","Longitude":"121.0351856"}
+,
+{"brand":"健身工廠","store":"苗栗廠","address":"苗栗縣頭份市中央路105號5F(尚順購物中心)","Latitude":"24.6890453","Longitude":"120.903999"}
+,
+{"brand":"健身工廠","store":"大有廠","address":"桃園市桃園區民光東路81號1樓","Latitude":"25.0082102","Longitude":"121.3193432"}
+,
+{"brand":"健身工廠","store":"中壢廠","address":"桃園市中壢區中華路二段330號","Latitude":"24.964734","Longitude":"121.235764"}
+,
+{"brand":"健身工廠","store":"公道五廠","address":"新竹市東區公道五路三段1號3樓","Latitude":"24.8055183","Longitude":"120.9915418"}
+,
+{"brand":"健身工廠","store":"湳雅廠","address":"新竹市北區湳雅街91-2號3樓","Latitude":"24.8195832","Longitude":"120.9699608"}
+,
+{"brand":"健身工廠","store":"復興廠","address":"桃園市桃園區復興路207號B1","Latitude":"24.9887027","Longitude":"121.3084315"}
+,
+{"brand":"健身工廠","store":"經國廠","address":"桃園市桃園區經國路116號","Latitude":"25.015396","Longitude":"121.306711"}
+,
+{"brand":"健身工廠","store":"南崁廠","address":"桃園市蘆竹區南平街11號","Latitude":"25.0461359","Longitude":"121.2907855"}
+,
+{"brand":"健身工廠","store":"西大廠","address":"新竹市北區西大路610號","Latitude":"24.807345","Longitude":"120.9616538"}
+,
+{"brand":"健身工廠","store":"光埔廠","address":"新竹市東區慈濟路121號","Latitude":"24.7913024","Longitude":"121.0142282"}
+,
+{"brand":"健身工廠","store":"精明廠","address":"台中市西區大隆路20號B1","Latitude":"24.1556288","Longitude":"120.655266"}
+,
+{"brand":"健身工廠","store":"豐原廠","address":"台中市豐原區成功路500號4F","Latitude":"24.2522311","Longitude":"120.7064332"}
+,
+{"brand":"健身工廠","store":"新時代廠","address":"台中市東區復興路四段186號9F","Latitude":"24.1357726","Longitude":"120.6877477"}
+,
+{"brand":"健身工廠","store":"中清廠","address":"台中市北區中清路一段652號B1","Latitude":"24.1688691","Longitude":"120.6731451"}
+,
+{"brand":"健身工廠","store":"文心南廠","address":"台中市南區復興路一段359號3F","Latitude":"24.1148807","Longitude":"120.6542177"}
+,
+{"brand":"健身工廠","store":"水湳廠","address":"台中市北屯區中清路二段1029號","Latitude":"24.1900834","Longitude":"120.6612392"}
+,
+{"brand":"健身工廠","store":"員林廠","address":"彰化縣員林市新生路201號","Latitude":"23.9607441","Longitude":"120.5682836"}
+,
+{"brand":"健身工廠","store":"草屯廠","address":"南投縣草屯鎮虎山路819號2F","Latitude":"23.9761333","Longitude":"120.6857038"}
+,
+{"brand":"健身工廠","store":"嘉義廠","address":"嘉義市西區新榮路236號2F","Latitude":"23.4801107","Longitude":"120.444132"}
+,
+{"brand":"健身工廠","store":"安平廠","address":"台南市安平區安平路52號","Latitude":"22.9983823","Longitude":"120.1854403"}
+,
+{"brand":"健身工廠","store":"德安廠","address":"台南市東區中華東路三段360號7樓","Latitude":"22.9738405","Longitude":"120.2206808"}
+,
+{"brand":"健身工廠","store":"中華廠","address":"台南市東區中華東路二段185巷16號","Latitude":"22.9845698","Longitude":"120.23317"}
+,
+{"brand":"健身工廠","store":"開元廠","address":"台南市北區開元路457號","Latitude":"23.0093641","Longitude":"120.2234379"}
+,
+{"brand":"健身工廠","store":"斗六廠","address":"雲林縣斗六巿斗六六路258號","Latitude":"23.7171226","Longitude":"120.5327445"}
+,
+{"brand":"健身工廠","store":"永華廠","address":"台南市安平區郡平路68號","Latitude":"22.9886702","Longitude":"120.1715415"}
+,
+{"brand":"健身工廠","store":"安南廠","address":"台南市安南區同安路235號","Latitude":"23.0424839","Longitude":"120.1920049"}
+,
+{"brand":"健身工廠","store":"民雄廠","address":"嘉義縣民雄鄉建國路一段259號","Latitude":"23.5598996","Longitude":"120.4338096"}
+,
+{"brand":"健身工廠","store":"博愛廠","address":"高雄市左營區博愛三路102號","Latitude":"22.6735124","Longitude":"120.3049766"}
+,
+{"brand":"健身工廠","store":"九如廠","address":"高雄市三民區慶雲街1號","Latitude":"22.6407775","Longitude":"120.314856"}
+,
+{"brand":"健身工廠","store":"三多廠","address":"高雄市前鎮區文橫三路59號","Latitude":"22.6135732","Longitude":"120.306919"}
+,
+{"brand":"健身工廠","store":"五福廠","address":"高雄市新興區五福二路262號3F","Latitude":"22.6234761","Longitude":"120.3015055"}
+,
+{"brand":"健身工廠","store":"鳳山廠","address":"高雄市三民區澄清路466號之1","Latitude":"22.6414904","Longitude":"120.3459499"}
+,
+{"brand":"健身工廠","store":"草衙廠","address":"高雄市前鎮區中安路1-1號 (大道西2F)","Latitude":"22.5827412","Longitude":"120.3297238"}
+,
+{"brand":"健身工廠","store":"岡山廠","address":"高雄市岡山區岡山路434號3樓","Latitude":"22.7960413","Longitude":"120.2961333"}
+,
+{"brand":"健身工廠","store":"屏東廠","address":"屏東市瑞民路2號","Latitude":"22.6634488","Longitude":"120.5066708"}
+,
+{"brand":"健身工廠","store":"海寶廠","address":"高雄市前金區自強二路171號3F","Latitude":"22.6278701","Longitude":"120.2941928"}
+,
+{"brand":"健身工廠","store":"同盟廠","address":"高雄市三民區同盟三路642號","Latitude":"22.6494734","Longitude":"120.2872431"}
+,
+{"brand":"健身工廠","store":"楠梓廠","address":"高雄市楠梓區大學東路290號","Latitude":"22.7293176","Longitude":"120.2902759"}
+,
+{"brand":"健身工廠","store":"環球廠","address":"高雄市苓雅區大順三路106號","Latitude":"22.632022","Longitude":"120.325271"}
+,
+{"brand":"健身工廠","store":"潮州廠","address":"屏東縣潮州鎮信義路111號","Latitude":"22.550009","Longitude":"120.536108"}
+,
+{"brand":"健身工廠","store":"南岡山廠","address":"高雄市岡山區捷安路1巷9號","Latitude":"22.7820735","Longitude":"120.3002404"}
+,
+{"brand":"健身工廠","store":"福華廠","address":"高雄市新興區復興一路80號2F","Latitude":"22.6335234","Longitude":"120.3084998"}
+
+]

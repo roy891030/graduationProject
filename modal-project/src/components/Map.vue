@@ -1,17 +1,17 @@
 <template>
 <div style="height:100%"> 
-    <l-map style="height: 100%" :zoom="zoom" :center="center" @click="addSelect" id="lmap" :max-bounds="maxBounds" ref="myMap">
+    <l-map style="height: 100%" :zoom="zoom" :center="center" @click="addSelect" id="lmap" :max-bounds="maxBounds" ref="myMap" >
         <!--底圖圖層-->
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <!-- 使用者選取範圍 -->
         <l-circle v-for="marker in newCircleDetails" :key="marker.id" :lat-lng="marker.location"
           :radius="range" :color="marker.color" :fillOpacity="marker.fillOpacity"/>
         <!--捷運站圖層-->
-        <l-layer-group ref="mrts">
+        <l-layer-group ref="mrts" >
           <!-- 創建標記點 !!!!!地圖上捷運站的位置跟我們顯示的有誤差!!!!--> 
           <l-marker  v-for="item in mrt_filter()" :lat-lng="item.location">
             <!-- 標記點樣式 -->
-            <l-icon :icon-url="icon.iconType.mrt" :icon-size="icon.iconSize.zoom14.tri" />
+            <l-icon :icon-url="icon.iconType.mrt" :icon-size="icon.iconSize.facility.rec" />
             <!-- 點擊跳出地點資訊 -->
             <l-popup>{{ "捷運"+item.zh_name+"站" }}</l-popup>
           </l-marker>
@@ -19,12 +19,22 @@
         <!--市場圖層-->
         <l-layer-group ref="markets">
           <!-- 創建標記點 -->
-          <l-marker  v-for="item in market_filter()" :lat-lng="item.location" >
+          <l-marker  v-for="item in market_filter()" :lat-lng="item.location">
           <!-- 標記點樣式 -->
-            <l-icon v-if="item.brand === '小北'" :icon-url="icon.iconType.小北" :icon-size="icon.iconSize.zoom14.squ"/>
-            <l-icon v-if="item.brand === '全聯'" :icon-url="icon.iconType.全聯" :icon-size="icon.iconSize.zoom14.squ"/>
-            <l-icon v-if="item.brand === '美廉社'" :icon-url="icon.iconType.美廉" :icon-size="icon.iconSize.zoom14.squ"/>
+            <l-icon v-if="item.brand === '小北'" :icon-url="icon.iconType.小北" :icon-size="icon.iconSize.facility.squ"/>
+            <l-icon v-if="item.brand === '全聯'" :icon-url="icon.iconType.全聯" :icon-size="icon.iconSize.facility.squ"/>
+            <l-icon v-if="item.brand === '美廉社'" :icon-url="icon.iconType.美廉" :icon-size="icon.iconSize.facility.squ"/>
             <l-popup>{{ item.brand + item.name }}</l-popup>
+          </l-marker>
+        </l-layer-group>
+
+        <!--機車行圖層-->
+        <l-layer-group ref="morto">
+          <!-- 創建標記點 -->
+          <l-marker  v-for="item in morto_filter()" :lat-lng="item.location">
+          <!-- 標記點樣式 -->
+            <l-icon :icon-url="icon.iconType.morto" :icon-size="icon.iconSize.competitor.rec" />
+            <l-popup>{{ item.brand + item.store_name }}</l-popup>
           </l-marker>
         </l-layer-group>
         <l-control  class="r_button">
@@ -42,11 +52,9 @@
 import { latLngBounds, latLng } from "leaflet";
 import {LMap, LTileLayer, LControl, LCircle, LCircleMarker, LMarker, LIcon, LPopup, LLayerGroup} from 'vue2-leaflet';
 import "leaflet/dist/leaflet.css";
-import mrtjson from '../高捷.json';
-import market from '../超市.json';
 
 export default {
-  props:['range'],
+  props: ['range', 'mrtjson', 'market', 'morto', 'park', 'gym'],
   components: {LMap, LTileLayer, LControl, LCircle, LCircleMarker, LMarker, LIcon, LPopup, LLayerGroup},
   data () {
     return {
@@ -66,23 +74,25 @@ export default {
           mrt: "http://localhost/mrt.png",
           小北: "http://localhost/小北.jpg",
           全聯: "http://localhost/全聯.png",
-          美廉: "http://localhost/美廉.png"
+          美廉: "http://localhost/美廉.png",
+          morto: "http://localhost/機車行.svg"
         },
         iconSize: {
-          zoom14: {
-            tri: [41, 25],
+          facility: {
+            rec: [41, 25],
             squ: [25, 20]
           },
-          zoom18: {
-            tri: [0, 0],
-            squ: [0, 0]
+          competitor: {
+            rec: [41, 100],
           }
         },
       },
       to_load_mrt: true,//控制建立mrtData的參數，避免mrtData一直重建(circle_times會被洗掉)
       mrtData: [],// 紀錄在圓圈範圍內要顯示的mrt
       to_load_market: true,//控制建立 marketData的參數，避免 marketData一直重建(circle_times會被洗掉)
-      marketData:[]// 紀錄在圓圈範圍內要顯示的超市
+      marketData:[],// 紀錄在圓圈範圍內要顯示的超市
+      to_load_morto: true,//控制建立 marketData的參數，避免 marketData一直重建(circle_times會被洗掉)
+      mortoData:[]// 紀錄在圓圈範圍內要顯示的超市
     };
   },
   mounted () {
@@ -98,18 +108,18 @@ export default {
             color:'red',
             fillOpacity: 0.3
           })
-          for(let i = 0; i < mrtjson.length; i++){
+          for(let i = 0; i < this.mrtjson.length; i++){
             if(this.to_load_mrt){ // 把捷運json檔資料另存成陣列格式
-              var temp_latlng =  L.latLng(mrtjson[i].Latitude, mrtjson[i].Longitude); //把車站的經緯度合併成leaflet使用的格式
+              var temp_latlng =  L.latLng(this.mrtjson[i].Latitude, this.mrtjson[i].Longitude); //把車站的經緯度合併成leaflet使用的格式
               this.mrtData.push({// 把捷運json檔資料另存成陣列格式
                 id: this.mrtData.length, // 就...給個編號
                 location: temp_latlng, // 座標
-                zh_name: mrtjson[i].StationNameZh,// 車站中文名
-                en_name: mrtjson[i].StationNameEn,// 車站英文名
-                addr: mrtjson[i].StationAddress, // 車站地址
+                zh_name: this.mrtjson[i].StationNameZh,// 車站中文名
+                en_name: this.mrtjson[i].StationNameEn,// 車站英文名
+                addr: this.mrtjson[i].StationAddress, // 車站地址
                 circle_times: 0 //紀錄該車站被框到的次數，用來控制icon是否顯示
               })           
-              if(i == (mrtjson.length-1)){ // 避免重複讀取資料到陣列
+              if(i == (this.mrtjson.length-1)){ // 避免重複讀取資料到陣列
                 this.to_load_mrt = !this.to_load_mrt;
               }
             }
@@ -118,23 +128,43 @@ export default {
             }
           }
           // console.log(this.to_load_mrt);
-          for(let i = 0; i < market.length; i++){
+          for(let i = 0; i < this.market.length; i++){
             if(this.to_load_market){ // 把超市json檔資料另存成陣列格式
-              var temp_latlng =  L.latLng(market[i].Latitude, market[i].Longitude); //把超市的經緯度合併成leaflet使用的格式
+              var temp_latlng =  L.latLng(this.market[i].Latitude, this.market[i].Longitude); //把超市的經緯度合併成leaflet使用的格式
               this.marketData.push({// 把超市json檔資料另存成陣列格式
                 id: this.marketData.length, // 就...給個編號
                 location: temp_latlng, // 座標
-                brand: market[i].品牌,// 超市品牌
-                name: market[i].門市,
-                addr: market[i].地址, // 超市地址
+                brand: this.market[i].品牌,// 超市品牌
+                name: this.market[i].門市,
+                addr: this.market[i].地址, // 超市地址
                 circle_times: 0 //紀錄該超市被框到的次數，用來控制icon是否顯示
               })  
-              if(i == (market.length-1)){ // 避免重複讀取資料到陣列
+              if(i == (this.market.length-1)){ // 避免重複讀取資料到陣列
                 this.to_load_market = !this.to_load_market;
               }
             }
             if(this.marketData[i].location.distanceTo(this.newCircleDetails[this.newCircleDetails.length -1].location) < this.range){ // 判斷那些站被新增的圓圈框到
               this.marketData[i].circle_times = this.marketData[i].circle_times + 1;
+            }
+          }
+          //機車行
+          for(let i = 0; i < this.morto.length; i++){
+            if(this.to_load_morto){ // 把捷運json檔資料另存成陣列格式
+              var temp_latlng =  L.latLng(this.morto[i].Latitude, this.morto[i].Longitude); //把車站的經緯度合併成leaflet使用的格式
+              this.mortoData.push({// 把捷運json檔資料另存成陣列格式
+                id: this.mortoData.length, // 就...給個編號
+                location: temp_latlng, // 座標
+                store_name: this.morto[i].store,// 車站中文名
+                brand: this.morto[i].brand,// 車站英文名
+                addr: this.morto[i].address, // 車站地址
+                circle_times: 0 //紀錄該車站被框到的次數，用來控制icon是否顯示
+              })           
+              if(i == (this.morto.length-1)){ // 避免重複讀取資料到陣列
+                this.to_load_morto = !this.to_load_morto;
+              }
+            }
+            if(this.mortoData[i].location.distanceTo(this.newCircleDetails[this.newCircleDetails.length -1].location) < this.range){ // 判斷那些站被新增的圓圈框到
+              this.mortoData[i].circle_times = this.mortoData[i].circle_times + 1;
             }
           }
           this.push = false; 
@@ -169,6 +199,15 @@ export default {
             }
           }
         })
+        // 刪除圓圈後變成沒被選到的機車行其選取次數減1
+        this.$nextTick(()=>{
+          for(let i = 0; i < this.mortoData.length; i++){
+            if(this.mortoData[i].location.distanceTo(location) < this.range){
+              this.mortoData[i].circle_times = this.mortoData[i].circle_times - 1;
+              // console.log(this.mortoData[i].circle_times);
+            }
+          }
+        })
       },
       mrt_filter(){ //過濾要呈現icon捷運，只呈現 circle_times 大於0的捷運站的 icon
         var temp = [];
@@ -177,6 +216,10 @@ export default {
             temp.push(element); 
           }
         })
+        //!!!多算了一間(好像只發生在美麗島)，多圈會有問題!!!
+        //console.log(temp);
+        //回傳範圍內捷運站至App.vue
+        this.$emit('return-mrt', temp);
         return temp;
       },
       market_filter(){ //過濾要呈現icon市場，只呈現 circle_times 大於0的市場的 icon
@@ -187,6 +230,20 @@ export default {
           }
           // console.log(element.circle_times)
         })
+        //回傳範圍內市場至App.vue
+        this.$emit('return-market', temp);
+        return temp;
+      },
+      morto_filter(){ //過濾要呈現icon市場，只呈現 circle_times 大於0的市場的 icon
+        var temp = [];
+        this.mortoData.forEach((element) =>{
+          if(element.circle_times > 0){
+            temp.push(element); 
+          }
+          // console.log(element.circle_times)
+        })
+        //回傳範圍內市場至App.vue
+        this.$emit('return-morto', temp);
         return temp;
       },
       //地圖縮放之後決定該顯示的圖層

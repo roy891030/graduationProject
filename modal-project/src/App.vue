@@ -16,7 +16,7 @@
                 v-b-popover.hover.top="range"></input>
             </div>
             <!-- 圖例modal, 參數為行業 -->
-            <Icon :jobType="jobs" :range="range" :select="jobs_selected"/>
+            <Icon :jobType="jobs" :range="range" :select="jobs_selected" :returnmrt="returnmrt" :returnmarket="returnmarket" :returnmorto="returnmorto"/>
             </b-tab>
             <b-tab title=" 圖表">
               <b-card-text>圖表</b-card-text>
@@ -58,7 +58,7 @@
     <div class="right">
       <div class="r_modal">
         <!-- 地圖modal-->
-        <Map v-if="isMap" :jobType="jobs" :range="range" />
+        <Map v-if="isMap" :jobType="jobs" :range="range" :mrtjson="mrtjson" :market="market" :morto="morto" :park="park" :gym="gym" @return-mrt="updatemrtdata" @return-market="updatemarketdata" @return-morto="updatemortodata"/>
         <!-- 樹枝modal-->
         <!-- <Branch v-if="!isMap" :jobType="jobs" :range="range"/> -->
       </div>
@@ -77,9 +77,14 @@ import Icon from './components/Icon.vue'
 import Map from './components/Map.vue'
 // 右方樹枝
 // import Branch from './components/Branch.vue'
+import mrtjson from './高捷.json';
+import market from './超市.json';
+import morto from './機車行.json';
+import park from './公園.json';
+import gym from './健身房.json';
 
 export default {
-  components:{Map,Icon},
+  components:{Map, Icon},
   data(){
     return{
       // 左上行業select
@@ -94,7 +99,29 @@ export default {
       // 判斷右方模式
       isMap: true,
       // 應該要有一個儲存選定地點的array? 加權modal會計算並回傳加權分數(假設icon有encode分數高低)
-      score: 50
+      score: 50,
+      mrtjson: mrtjson, //全部mrt資料
+      market: market,  //全部超市資料
+      morto: morto,
+      park: park,
+      gym: gym,
+      returnmrt: [],  //選取範圍內的Mrt資料
+      returnmarket: [], //選取範圍內的Market資料
+      returnmorto: [] //選取範圍內的機車行資料
+    }
+  },
+  methods:{
+    //接收Map.vue中範圍內捷運站數量並更新至App.vue
+    //!!!因為傳object是用call by reference所以不要動到returnmrt和returnmarket!!!
+    //避免發生問題可以用deep copy, 不過我還沒弄(這樣也許會有更新不同步的問題?)
+    updatemrtdata(element){
+      this.returnmrt = element;
+    },
+    updatemarketdata(element){
+      this.returnmarket = element;
+    },
+    updatemortodata(element){
+      this.returnmorto = element;
     }
   }
 }
