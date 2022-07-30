@@ -12,8 +12,7 @@
               <b-form-select v-model="jobs_selected" :options="jobs" class="job"></b-form-select>
               <label for="sb-inline" class="label_lt">距離</label>
               <!-- 應該可以用相對位置等方式去調整pop的位置 -->
-              <input class="form-range dis_range" id="range-1" v-model="range" type="range" min="300" max="1500"
-                v-b-popover.hover.top="range"></input>
+              <input class="form-range dis_range" id="range-1" v-model="range" type="range" min="300" max="1500" v-b-popover.hover.top="range"></input>
             </div>
             <!-- 圖例modal, 參數為行業 -->
             <Icon :jobType="jobs" :range="range" :select="jobs_selected" :returnmrt="returnmrt" :returnmarket="returnmarket" :returnmorto="returnmorto"/>
@@ -27,29 +26,11 @@
       <b-card no-body class="left_down">
         <b-tabs card>
           <b-tab title="評分" active>
-            <span style="text-align:left; font-weight:bold; float:left">加權調整</span>
-            <span style="text-align:left; font-weight:bold; float:right">評分</span><br><br>
-
-            <label for="customRange1" class="form-label">{{score}}</label>
-            <!--可任意調分-->
-            <input type="range" class="form-range" id="customRange1" v-model="score"><br><br>
             <!-- 加權條整區modal, 參數為行業 -->
-            <!-- <Score :jobType="jobs" :range="range"/> -->
+            <Score :jobType="jobs_selected" :range="range"/>
           </b-tab>
           <b-tab title="總覽">
-            <p>地點需求</p>
-            <div style="height:300px; overflow:auto">
-              <div class="tableline"></div>
-              <p style="text-align:left">預估需求：</p>
-              <p style="text-align:left">租金：</p>
-              <p style="text-align:left">地址：</p>
-              <p style="text-align:left">附近競爭者數：</p>
-              <p style="text-align:left">附近市場數：</p>
-              <p style="text-align:left">附近捷運站數：</p>
-              <p style="text-align:left">區域平均租金：</p>
-            </div>
-            <!-- 參數...好像...很多... -->
-            <!-- <Overview :jobType="jobs" :range="range"/> -->
+            <Overview />
           </b-tab>
         </b-tabs>
       </b-card>
@@ -69,10 +50,11 @@
 <script>
 // 左上圖例
 import Icon from './components/Icon.vue'
+// import Test from './components/Test.vue'
 // 左下評分
-// import Score from './components/Score.vue'
+import Score from './components/Score.vue'
 // 左下總覽
-// import Overview from './components/Overview.vue'
+import Overview from './components/Overview.vue'
 // 右方地圖
 import Map from './components/Map.vue'
 // 右方樹枝
@@ -84,7 +66,7 @@ import park from './公園.json';
 import gym from './健身房.json';
 
 export default {
-  components:{Map, Icon},
+  components:{Icon, Map, Score, Overview},
   data(){
     return{
       // 左上行業select
