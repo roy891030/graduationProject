@@ -3,10 +3,13 @@
     <b-container>
         <b-row align-v="center">
             <div v-show="select==='a'">
-                <svg-l v-b-tooltip.hover.v-warning.html="pKinder" class="person"></svg-l>
+                <p>moto: {{returnmorto}}</p>
+                <p>market: {{returnmarket}}</p>
+                <p>mrt: {{returnmrt}}</p>
+                <!-- <svg-l v-b-tooltip.hover.v-warning.html="pKinder" class="person"></svg-l>
                 <svg-flower v-b-tooltip.hover.v-success.html="bKinder" class="right"></svg-flower>
                 <svg-flower v-b-tooltip.hover.v-success.html="bKinder" class="right-1"></svg-flower>
-                <svg-flag v-b-tooltip.hover.v-primary.html="fKinder" class="left"></svg-flag>
+                <svg-flag v-b-tooltip.hover.v-primary.html="fKinder" class="left"></svg-flag> -->
             </div>
 
             <div v-show="select === 'b'">
@@ -20,21 +23,15 @@
                 <svg-bag v-b-tooltip.hover.v-success.html="bGym" class="right" width="80%"></svg-bag>
                 <svg-flag v-b-tooltip.hover.v-primary.html="fGym" class="left"></svg-flag>
             </div>
-
         </b-row>
-
-
     </b-container>
 
 </template>
 
 <script>
 import * as d3 from 'd3';
-
-
-
 export default {
-    props: ['jobType','select','range' ],
+    props: ['jobType', 'select', 'range', 'returnmrt', 'returnmarket','returnmorto'],
 
     data(){
         return{
@@ -97,7 +94,6 @@ customElements.define("svg-bag", class extends HTMLElement {
     }
 })
 
-
 customElements.define("svg-flag", class extends HTMLElement {
     connectedCallback() {
         setTimeout(() => { // make sure inner DOM is parsed
@@ -110,7 +106,6 @@ customElements.define("svg-flag", class extends HTMLElement {
         });
     }
 })
-
 
 customElements.define("svg-flower", class extends HTMLElement {
     connectedCallback() {
@@ -243,11 +238,6 @@ customElements.define("svg-l", class extends HTMLElement {
 </script>
 
 <style scoped>
-
-
-
-
-
 @keyframes example {
     0% {
     top: 140px;
